@@ -26,7 +26,7 @@ function resetDrink(){
 }
 
 function selectDrink(doSelect, drink){
-
+    resetDrink();
     if (drink === 'thé'){
         if (doSelect === true){
             $('#ledThe').attr('src', 'images/1Sucre.png');
@@ -34,11 +34,14 @@ function selectDrink(doSelect, drink){
             $('#ledThe').attr('src', 'images/1SucreVide.png');
         }
     }
-		if (doSelect === true && drink === "cafe") {
-		$('#btnCafe').attr("src","vue1-assets/iconecafeclick.png");
+
+    if (drink === 'café'){
+		if (doSelect === true) {
+		  $('#ledCafe').attr("src","images/1Sucre.png");
 	} else {
-		$('#btnCafe').attr("src","vue1-assets/iconecafe.png");
-	}
+		$('#ledCafe').attr("src","images/1SucreVide.png");
+	   }
+    }
 
 }
 
@@ -108,6 +111,14 @@ $(document).ready(function(){
         selectDrink(select,'thé');
     });
 
+    $('#btnCafe').click(function(){
+        let select = true;
+        if ($('#ledCafe').attr('src') === 'images/1Sucre.png'){
+            select = false;
+        }
+        selectDrink(select,'café');
+    });
+
     $('#btnPlusSucre').click(function(){
         addSugar();
     });
@@ -122,12 +133,6 @@ $(document).ready(function(){
     $('#btnResetCoin').click(function(){
         resetCoin();
     });
-	$('#btnCafe').click(function(){
-		if ($('#btnCafe').attr("src")==="vue1-assets/iconecafe.png"){
-			selectDrink(true,'cafe');	
-		} else {
-			selectDrink(false,'cafe');
-		}
-	});
+
 });
 
