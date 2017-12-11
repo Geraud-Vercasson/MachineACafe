@@ -87,7 +87,12 @@ function removeSugar(){
 function addCoin(coin){
     compteur += coinValues[coin];
     compteur = (Math.round(compteur*100))/100;
-    $('#monnayeur').html('Crédit : ' + compteur + "€");
+
+    if (compteur < 1){
+        $('#monnayeur').html('Crédit : ' + Math.round(compteur*100) + "Cts");
+    } else {
+        $('#monnayeur').html('Crédit : ' + compteur + "€");       
+    }
 }
 
 function resetCoin(){
