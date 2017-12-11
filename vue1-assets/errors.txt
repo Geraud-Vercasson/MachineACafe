@@ -1,0 +1,7 @@
+[2017-12-11 14:08:13] layer "bourse.png": Duplicate path: bourse.png
+[2017-12-11 14:08:13] layer "iconesucre.png": Duplicate path: iconesucre.png
+[2017-12-11 14:08:13] layer "ecranniveausucre.png": Duplicate path: ecranniveausucre.png
+[2017-12-11 14:08:13] layer "niveau1.png": Duplicate path: niveau1.png
+[2017-12-11 14:08:13] layer "niveau2.png": Duplicate path: niveau2.png
+[2017-12-11 14:08:13] layer "iconethe.png": Duplicate path: iconethe.png
+[2017-12-11 14:08:13] layer "bouton +": Expected end of input but "+" found.
