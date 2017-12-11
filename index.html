@@ -2,15 +2,19 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="script.js"></script>
+    
     </head>
     <body>
         <div id="boissons">
-            <div>Thé <button class="boisson" id="btnThe">Thé </button><img id="ledThe" src="images/1SucreVide.png"></div>
-            <div>Chocolat <button class="boisson" id="btnChocolat">Café</button><img id="ledChocolat" src="images/1SucreVide.png"></div>
-            <div>Café <button class="boisson" id="btnCafe">Café</button><img id="ledCafe" src="images/1SucreVide.png"></div>
-            <div>Cappuccino <button class="boisson" id="btnCappuccino">Cappuccino</button><img id="ledCappuccino" src="images/1SucreVide.png"></div>
+            <div><button class="boisson" id="btnThe">Thé </button><img id="ledThe" src="images/1SucreVide.png"></div>
+
+            <div><button class="boisson" id="btnChocolat">Chocolat</button><img id="ledChocolat" src="images/1SucreVide.png"></div>
+
+            <div><img src="vue1-assets/iconecafe.png" id="btnCafe" id="ledCafe"  class="boisson"></div>
+
+            <div><button class="boisson" id="btnCappuccino">Cappuccino</button><img id="ledCappuccino" src="images/1SucreVide.png"></div>
         </div>
 
         <div id="sucres">
@@ -24,17 +28,16 @@
         </div>
 
         <div id="pieces">
-            <button class="coin" id="btnCinqCts">5 Cts</button>
-            <button class="coin" id="btnDixCts">10 Cts</button>
-            <button class="coin" id="btnVingtCts">20 Cts</button>
-            <button class="coin" id="btnCinquanteCts">50 Cts</button>
-            <button class="coin" id="btnUnEuro">1 €</button>
-            <button class="coin" id="btnDeuxEuros">2 €</button>
+            <button id="btnCinqCts">5 Cts</button>
+            <button id="btnDixCts">10 Cts</button>
+            <button id="btnVingtCts">20 Cts</button>
+            <button id="btnCinquanteCts">50 Cts</button>
+            <button id="btnUnEuro">1 €</button>
+            <button id="btnDeuxEuros">2 €</button>
         </div>
         <div id="afficheurMonnaie">
             <div id="monnayeur">Blablabla</div>
             <button id="btnResetCoin">Reset Coins</button>
-            <button id="btnResetDrink"> Reset Drink</button>
         </div>
     </body>
 </html>
