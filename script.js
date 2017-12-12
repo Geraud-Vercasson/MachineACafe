@@ -23,7 +23,7 @@ function selectDrink(doSelect, drink){
 		$('#ledCafe').attr("src","images/LedOff.png");
 	   }
     }
-
+    
     if (drink === 'chocolat'){
         if (doSelect === true) {
         $("#ledChocolat").attr("src", "images/LedOn.png");
