@@ -1,5 +1,11 @@
+
+/*Déclaration des variables*/
+let compteur = 0;
+let nbSucres = 1;
+
 /*Déclaration des fonctions */
 function resetDrink(){
+
     let drinkPictures = $('.boisson').parent().children('img');
     drinkPictures.each(function(){
         $(this).attr('src','images/LedOff.png');
@@ -23,7 +29,7 @@ function selectDrink(doSelect, drink){
 		$('#ledCafe').attr("src","images/LedOff.png");
 	   }
     }
-    
+
     if (drink === 'chocolat'){
         if (doSelect === true) {
         $("#ledChocolat").attr("src", "images/LedOn.png");
@@ -108,7 +114,7 @@ $(document).ready(function(){
 
     $( "#btnChocolat").click(function() {
         let isOn=true;
-         // 	selectDrink(isOn,"chocolat");
+         //     selectDrink(isOn,"chocolat");
          let srcImageActuelle = $("#ledChocolat").attr("src");
     
          if (srcImageActuelle === "images/LedOff.png") {
