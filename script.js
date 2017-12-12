@@ -19,7 +19,7 @@ const coinValues = {
 function resetDrink(){
 
     let drinkPictures = $('.boisson').parent().children('img');
-    drinkPictures.each(function(index){
+    drinkPictures.each(function(){
         $(this).attr('src','images/LedOff.png');
     });
     
@@ -42,6 +42,15 @@ function selectDrink(doSelect, drink){
 		$('#ledCafe').attr("src","images/LedOff.png");
 	   }
     }
+
+    if (drink === 'chocolat'){
+        if (doSelect === true) {
+        $("#ledChocolat").attr("src", "images/LedOn.png");
+        } else {
+        $("#ledChocolat").attr("src", "images/LedOff.png");
+        }
+    }
+
 
 }
 
@@ -137,5 +146,36 @@ $(document).ready(function(){
         resetCoin();
     });
 
+    $( "#btnChocolat").click(function() {
+        let isOn=true;
+         // 	selectDrink(isOn,"chocolat");
+         let srcImageActuelle = $("#ledChocolat").attr("src");
+    
+         if (srcImageActuelle === "images/LedOff.png") {
+             isOn = true;
+         } else {
+             isOn = false;
+         }
+         selectDrink(isOn,'chocolat');
+    
+        });
+
 });
+
+
+// fonction ​ ​​selecDrink(booléen, ​boisson) qui​ ​permet ​ ​de sélectionner ​ ​ou ​ ​désélectionner ​ ​une ​ ​boisson ​ ​(allumer ​ ​ou ​ ​éteindre ​ ​la ​ ​led).
+
+
+
+
+// fonction ​ ​​resetDrink() ​ ​​qui ​ ​désélectionne ​ ​toutes ​ ​les ​ ​boissons
+
+
+$(document).ready(function(){
+
+
+
+});
+
+
 
