@@ -43,7 +43,6 @@ function selectDrink(doSelect, drink){
 }
 
 function addSugar(){
-    let tableauSucrePossibles = ["sucreUn","sucreDeux","sucreTrois","sucreQuatre","sucreCinq"];
     let sucreJquery = $('.sucre');
     let srcSucreVide = 'images/1SucreVide.png';
     let srcSucrePlein = 'images/1Sucre.png';
@@ -62,7 +61,6 @@ function addSugar(){
 }
 
 function removeSugar(){
-    let tableauSucrePossibles = ["sucreUn","sucreDeux","sucreTrois","sucreQuatre","sucreCinq"];
     let sucreJquery = $('.sucre');
     let srcSucreVide = 'images/1SucreVide.png';
     let srcSucrePlein = 'images/1Sucre.png';
