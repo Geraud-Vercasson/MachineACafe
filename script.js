@@ -1,6 +1,5 @@
 
 /*Déclaration des variables*/
-
 let compteur = 0;
 let nbSucres = 1;
 
@@ -13,42 +12,43 @@ const coinValues = {
     btnDeuxEuros: 2
 };
 
-
 /*Déclaration des fonctions */
-
 function resetDrink(){
 
     let drinkPictures = $('.boisson').parent().children('img');
-    drinkPictures.each(function(index){
-        $(this).attr('src','images/1SucreVide.png');
+    drinkPictures.each(function(){
+        $(this).attr('src','images/LedOff.png');
     });
-    
 }
 
 function selectDrink(doSelect, drink){
     resetDrink();
     if (drink === 'thé'){
         if (doSelect === true){
-            $('#ledThe').attr('src', 'images/1Sucre.png');
+            $('#ledThe').attr('src', 'images/LedOn.png');
         } else {
-            $('#ledThe').attr('src', 'images/1SucreVide.png');
+            $('#ledThe').attr('src', 'images/LedOff.png');
         }
     }
 
     if (drink === 'café'){
 		if (doSelect === true) {
-		  $('#ledCafe').attr("src","images/1Sucre.png");
+		  $('#ledCafe').attr("src","images/LedOn.png");
 	} else {
-		$('#ledCafe').attr("src","images/1SucreVide.png");
+		$('#ledCafe').attr("src","images/LedOff.png");
 	   }
     }
 
+    if (drink === 'chocolat'){
+        if (doSelect === true) {
+        $("#ledChocolat").attr("src", "images/LedOn.png");
+        } else {
+        $("#ledChocolat").attr("src", "images/LedOff.png");
+        }
+    }
 }
 
 // fonction addSugar() ajoute un sucre quand on appuie sur le bouton plus
-
-
-
 function addSugar() {
         if (nbSucres <5) {
             nbSucres = nbSucres + 1;
@@ -88,7 +88,6 @@ function addSugar() {
     }
     
     // fonction ​​removeSugar() ​​retire un sucre quand on appuie sur le bouton moins
-    
     function removeSugar() {
     
         if (nbSucres >0) {
@@ -132,6 +131,32 @@ function addSugar() {
             $("#sucreQuatre").attr("src", "images/1SucreVide.png"); 
             $("#sucreCinq").attr("src", "images/1SucreVide.png");   
         }    
+
+function addSugar(){
+    let sucreJquery = $('.sucre');
+    let srcSucreVide = 'images/LedOff.png';
+    let srcSucrePlein = 'images/LedOn.png';
+
+    if (nbSucres < 5){
+        nbSucres++;
+    }
+
+    sucreJquery.each(function(index){
+        if (index < nbSucres){
+            $(this).attr('src',srcSucrePlein);
+        }else {
+            $(this).attr('src',srcSucreVide);
+        }
+    });
+}
+
+function removeSugar(){
+    let sucreJquery = $('.sucre');
+    let srcSucreVide = 'images/LedOff.png';
+    let srcSucrePlein = 'images/LedOn.png';
+
+    if (nbSucres > 0){
+        nbSucres--;
     }
 
 // function addSugar(){
@@ -190,7 +215,6 @@ function resetCoin(){
 }
 
 /* Script*/
-
 $(document).ready(function(){
 
     $('#btnResetDrink').click(function(){
@@ -199,7 +223,7 @@ $(document).ready(function(){
 
     $('#btnThe').click(function(){
         let select = true;
-        if ($('#ledThe').attr('src') === 'images/1Sucre.png'){
+        if ($('#ledThe').attr('src') === 'images/LedOn.png'){
             select = false;
         }
         selectDrink(select,'thé');
@@ -207,7 +231,7 @@ $(document).ready(function(){
 
     $('#btnCafe').click(function(){
         let select = true;
-        if ($('#ledCafe').attr('src') === 'images/1Sucre.png'){
+        if ($('#ledCafe').attr('src') === 'images/LedOn.png'){
             select = false;
         }
         selectDrink(select,'café');
@@ -228,5 +252,20 @@ $(document).ready(function(){
         resetCoin();
     });
 
+    $( "#btnChocolat").click(function() {
+        let isOn=true;
+         // 	selectDrink(isOn,"chocolat");
+         let srcImageActuelle = $("#ledChocolat").attr("src");
+    
+         if (srcImageActuelle === "images/LedOff.png") {
+             isOn = true;
+         } else {
+             isOn = false;
+         }
+         selectDrink(isOn,'chocolat');
+    
+        });
 });
+
+
 
