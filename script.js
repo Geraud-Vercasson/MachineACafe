@@ -20,7 +20,7 @@ function resetDrink(){
 
     let drinkPictures = $('.boisson').parent().children('img');
     drinkPictures.each(function(index){
-        $(this).attr('src','images/1SucreVide.png');
+        $(this).attr('src','images/LedOff.png');
     });
     
 }
@@ -29,17 +29,17 @@ function selectDrink(doSelect, drink){
     resetDrink();
     if (drink === 'thé'){
         if (doSelect === true){
-            $('#ledThe').attr('src', 'images/1Sucre.png');
+            $('#ledThe').attr('src', 'images/LedOn.png');
         } else {
-            $('#ledThe').attr('src', 'images/1SucreVide.png');
+            $('#ledThe').attr('src', 'images/LedOff.png');
         }
     }
 
     if (drink === 'café'){
 		if (doSelect === true) {
-		  $('#ledCafe').attr("src","images/1Sucre.png");
+		  $('#ledCafe').attr("src","images/LedOn.png");
 	} else {
-		$('#ledCafe').attr("src","images/1SucreVide.png");
+		$('#ledCafe').attr("src","images/LedOff.png");
 	   }
     }
 
@@ -47,8 +47,8 @@ function selectDrink(doSelect, drink){
 
 function addSugar(){
     let sucreJquery = $('.sucre');
-    let srcSucreVide = 'images/1SucreVide.png';
-    let srcSucrePlein = 'images/1Sucre.png';
+    let srcSucreVide = 'images/LedOff.png';
+    let srcSucrePlein = 'images/LedOn.png';
 
     if (nbSucres < 5){
         nbSucres++;
@@ -65,8 +65,8 @@ function addSugar(){
 
 function removeSugar(){
     let sucreJquery = $('.sucre');
-    let srcSucreVide = 'images/1SucreVide.png';
-    let srcSucrePlein = 'images/1Sucre.png';
+    let srcSucreVide = 'images/LedOff.png';
+    let srcSucrePlein = 'images/LedOn.png';
 
     if (nbSucres > 0){
         nbSucres--;
@@ -108,7 +108,7 @@ $(document).ready(function(){
 
     $('#btnThe').click(function(){
         let select = true;
-        if ($('#ledThe').attr('src') === 'images/1Sucre.png'){
+        if ($('#ledThe').attr('src') === 'images/LedOn.png'){
             select = false;
         }
         selectDrink(select,'thé');
@@ -116,7 +116,7 @@ $(document).ready(function(){
 
     $('#btnCafe').click(function(){
         let select = true;
-        if ($('#ledCafe').attr('src') === 'images/1Sucre.png'){
+        if ($('#ledCafe').attr('src') === 'images/LedOn.png'){
             select = false;
         }
         selectDrink(select,'café');
