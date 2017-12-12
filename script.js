@@ -45,44 +45,133 @@ function selectDrink(doSelect, drink){
 
 }
 
-function addSugar(){
-    let tableauSucrePossibles = ["sucreUn","sucreDeux","sucreTrois","sucreQuatre","sucreCinq"];
-    let sucreJquery = $('.sucre');
-    let srcSucreVide = 'images/1SucreVide.png';
-    let srcSucrePlein = 'images/1Sucre.png';
+// fonction addSugar() ajoute un sucre quand on appuie sur le bouton plus
 
-    if (nbSucres < 5){
-        nbSucres++;
+
+
+function addSugar() {
+        if (nbSucres <5) {
+            nbSucres = nbSucres + 1;
+        }  
+        console.log(nbSucres);
+        if (nbSucres === 1) {
+            $("#sucreUn").attr("src", "images/1Sucre.png");
+            $("#sucreDeux").attr("src", "images/1SucreVide.png");
+            $("#sucreTrois").attr("src", "images/1SucreVide.png");
+            $("#sucreQuatre").attr("src", "images/1SucreVide.png");
+            $("#sucreCinq").attr("src", "images/1SucreVide.png");
+        } else if (nbSucres === 2)  {
+            $("#sucreUn").attr("src", "images/1Sucre.png");
+            $("#sucreDeux").attr("src", "images/1Sucre.png");
+            $("#sucreTrois").attr("src", "images/1SucreVide.png");
+            $("#sucreQuatre").attr("src", "images/1SucreVide.png");
+            $("#sucreCinq").attr("src", "images/1SucreVide.png");
+        } else if (nbSucres === 3)  {
+            $("#sucreUn").attr("src", "images/1Sucre.png");
+            $("#sucreDeux").attr("src", "images/1Sucre.png");
+            $("#sucreTrois").attr("src", "images/1Sucre.png");
+            $("#sucreQuatre").attr("src", "images/1SucreVide.png");
+            $("#sucreCinq").attr("src", "images/1SucreVide.png");
+        } else if (nbSucres === 4)  {
+            $("#sucreUn").attr("src", "images/1Sucre.png");
+            $("#sucreDeux").attr("src", "images/1Sucre.png");
+            $("#sucreTrois").attr("src", "images/1Sucre.png");
+            $("#sucreQuatre").attr("src", "images/1Sucre.png");
+            $("#sucreCinq").attr("src", "images/1SucreVide.png");
+        } else if (nbSucres === 5)  {
+            $("#sucreUn").attr("src", "images/1Sucre.png");
+            $("#sucreDeux").attr("src", "images/1Sucre.png");
+            $("#sucreTrois").attr("src", "images/1Sucre.png");
+            $("#sucreQuatre").attr("src", "images/1Sucre.png");
+            $("#sucreCinq").attr("src", "images/1Sucre.png");
+        }
+    }
+    
+    // fonction ​​removeSugar() ​​retire un sucre quand on appuie sur le bouton moins
+    
+    function removeSugar() {
+    
+        if (nbSucres >0) {
+            nbSucres = nbSucres - 1 ;
+        }  
+        console.log(nbSucres);
+        if (nbSucres === 1) {
+            $("#sucreUn").attr("src", "images/1Sucre.png");
+            $("#sucreDeux").attr("src", "images/1SucreVide.png");
+            $("#sucreTrois").attr("src", "images/1SucreVide.png");
+            $("#sucreQuatre").attr("src", "images/1SucreVide.png");
+            $("#sucreCinq").attr("src", "images/1SucreVide.png");
+        } else if (nbSucres === 2)  {
+            $("#sucreUn").attr("src", "images/1Sucre.png");
+            $("#sucreDeux").attr("src", "images/1Sucre.png");
+            $("#sucreTrois").attr("src", "images/1SucreVide.png");
+            $("#sucreQuatre").attr("src", "images/1SucreVide.png");
+            $("#sucreCinq").attr("src", "images/1SucreVide.png");
+        } else if (nbSucres === 3)  {
+            $("#sucreUn").attr("src", "images/1Sucre.png");
+            $("#sucreDeux").attr("src", "images/1Sucre.png");
+            $("#sucreTrois").attr("src", "images/1Sucre.png");
+            $("#sucreQuatre").attr("src", "images/1SucreVide.png");
+            $("#sucreCinq").attr("src", "images/1SucreVide.png");
+        } else if (nbSucres === 4)  {
+            $("#sucreUn").attr("src", "images/1Sucre.png");
+            $("#sucreDeux").attr("src", "images/1Sucre.png");
+            $("#sucreTrois").attr("src", "images/1Sucre.png");
+            $("#sucreQuatre").attr("src", "images/1Sucre.png");
+            $("#sucreCinq").attr("src", "images/1SucreVide.png");
+        } else if (nbSucres === 5)  {
+            $("#sucreUn").attr("src", "images/1Sucre.png");
+            $("#sucreDeux").attr("src", "images/1Sucre.png");
+            $("#sucreTrois").attr("src", "images/1Sucre.png");
+            $("#sucreQuatre").attr("src", "images/1Sucre.png");
+            $("#sucreCinq").attr("src", "images/1Sucre.png");
+        } else {   
+            $("#sucreUn").attr("src", "images/1SucreVide.png");
+            $("#sucreDeux").attr("src", "images/1SucreVide.png");
+            $("#sucreTrois").attr("src", "images/1SucreVide.png");
+            $("#sucreQuatre").attr("src", "images/1SucreVide.png"); 
+            $("#sucreCinq").attr("src", "images/1SucreVide.png");   
+        }    
     }
 
-    sucreJquery.each(function(index){
-        if (index < nbSucres){
-            $(this).attr('src',srcSucrePlein);
-        }else {
-            $(this).attr('src',srcSucreVide);
-        }
-    });
-}
+// function addSugar(){
+//     let tableauSucrePossibles = ["sucreUn","sucreDeux","sucreTrois","sucreQuatre","sucreCinq"];
+//     let sucreJquery = $('.sucre');
+//     let srcSucreVide = 'images/1SucreVide.png';
+//     let srcSucrePlein = 'images/1Sucre.png';
 
-function removeSugar(){
-    let tableauSucrePossibles = ["sucreUn","sucreDeux","sucreTrois","sucreQuatre","sucreCinq"];
-    let sucreJquery = $('.sucre');
-    let srcSucreVide = 'images/1SucreVide.png';
-    let srcSucrePlein = 'images/1Sucre.png';
+//     if (nbSucres < 5){
+//         nbSucres++;
+//     }
 
-    if (nbSucres > 0){
-        nbSucres--;
-    }
+//     sucreJquery.each(function(index){
+//         if (index < nbSucres){
+//             $(this).attr('src',srcSucrePlein);
+//         }else {
+//             $(this).attr('src',srcSucreVide);
+//         }
+//     });
+// }
+
+// function removeSugar(){
+//     let tableauSucrePossibles = ["sucreUn","sucreDeux","sucreTrois","sucreQuatre","sucreCinq"];
+//     let sucreJquery = $('.sucre');
+//     let srcSucreVide = 'images/1SucreVide.png';
+//     let srcSucrePlein = 'images/1Sucre.png';
+
+//     if (nbSucres > 0){
+//         nbSucres--;
+//     }
 
 
-    sucreJquery.each(function(index){
-        if (index < nbSucres){
-            $(this).attr('src',srcSucrePlein);
-        }else {
-            $(this).attr('src',srcSucreVide);
-        }
-    });
-}
+//     sucreJquery.each(function(index){
+//         if (index < nbSucres){
+//             $(this).attr('src',srcSucrePlein);
+//         }else {
+//             $(this).attr('src',srcSucreVide);
+//         }
+//     });
+// }
 
 function addCoin(coin){
     compteur += coinValues[coin];
