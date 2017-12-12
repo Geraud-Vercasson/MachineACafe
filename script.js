@@ -124,7 +124,7 @@ function removeSugar(){
 
 function addCoin(coin){
     compteur += coinValues[coin];
-    // compteur = (Math.round(compteur*100))/100;
+    compteur = (Math.round(compteur*100))/100;
 
     if (compteur < 1){
         $('#monnayeur').html('Crédit : ' + Math.round(compteur*100) + "Cts");
@@ -196,9 +196,6 @@ $(document).ready(function(){
 
 // fonction ​ ​​resetDrink() ​ ​​qui ​ ​désélectionne ​ ​toutes ​ ​les ​ ​boissons
 
-$(document).ready(function(){
-
-});
 
 
 
