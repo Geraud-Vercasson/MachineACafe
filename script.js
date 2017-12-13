@@ -1,6 +1,6 @@
 
 /*Déclaration des variables*/
-let compteur = 0;
+let COMPTEUR = 0;
 let nbSucres = 1;
 
 const coinValues = {
@@ -83,6 +83,26 @@ function removeSugar(){
     });
 }
 
+// Fonction addCoin Thomas
+function addCoin(coin){
+    COMPTEUR += coin;
+    COMPTEUR = (Math.round(COMPTEUR*100))/100;
+    if (COMPTEUR < 1){
+        $('#monnayeur').html('Crédit : ' + Math.round(COMPTEUR*100) + " Cts");
+    } else {
+        $('#monnayeur').html('Crédit : ' + COMPTEUR + " €");       
+    }
+    console.log(COMPTEUR);
+}
+
+function resetCoins(){
+    COMPTEUR = 0;
+    if ( COMPTEUR === 0){
+        $("#monnayeur").html("Crédit : " + COMPTEUR + " €");
+    }
+    console.log(COMPTEUR);
+}
+
 // function addSugar(){
 //     let tableauSucrePossibles = ["sucreUn","sucreDeux","sucreTrois","sucreQuatre","sucreCinq"];
 //     let sucreJquery = $('.sucre');
@@ -162,21 +182,21 @@ function removeSugar(){
 //  }
 // }
 
-function addCoin(coin){
-    compteur += coinValues[coin];
-    compteur = (Math.round(compteur*100))/100;
+// function addCoin(coin){
+//     COMPTEUR += coinValues[coin];
+//     COMPTEUR = (Math.round(COMPTEUR*100))/100;
 
-    if (compteur < 1){
-        $('#monnayeur').html('Crédit : ' + Math.round(compteur*100) + "Cts");
-    } else {
-        $('#monnayeur').html('Crédit : ' + compteur + "€");       
-    }
-}
+//     if (COMPTEUR < 1){
+//         $('#monnayeur').html('Crédit : ' + Math.round(COMPTEUR*100) + "Cts");
+//     } else {
+//         $('#monnayeur').html('Crédit : ' + COMPTEUR + "€");       
+//     }
+// }
 
-function resetCoin(){
-    compteur = 0;
-    $('#monnayeur').html('Crédit : ' + compteur + "€");
-}
+// function resetCoin(){
+//     COMPTEUR = 0;
+//     $('#monnayeur').html('Crédit : ' + COMPTEUR + "€");
+// }
 
 /* Script*/
 $(document).ready(function(){
@@ -219,14 +239,28 @@ $(document).ready(function(){
     $('#btnMoinsSucre').click(function(){
         removeSugar();
     });
-    $('.coin').click(function(){
-        let thisCoin = $(this).attr('id');
-        addCoin(thisCoin);
+
+    $(".coin").click(function(){
+    let thisCoin =  parseFloat($(this).attr("alt"));
+    //console.log(thisCoin);
+       //console.log(coin.toFixed(2));
+    addCoin(thisCoin);
+      
+    });
+
+    $("#btnResetCoin").click(function(){
+        resetCoins();
 
     });
-    $('#btnResetCoin').click(function(){
-        resetCoin();
-    });
+
+    // $('.coin').click(function(){
+    //     let thisCoin = $(this).attr('id');
+    //     addCoin(thisCoin);
+
+    // });
+    // $('#btnResetCoin').click(function(){
+    //     resetCoin();
+    // });
 
 });
 
