@@ -1,0 +1,33 @@
+.background{
+    top:0px;
+    left:0px;
+    position:absolute;
+    width: 400px;
+    height: 300px;
+    background-color:#ffe6f2;
+}
+
+p{
+    color:#FFFFFF;
+    text-align:center;
+    font-weight:bold;
+}
+
+#coffee{
+    top:150px;
+    left:50px;
+    position:absolute;
+    width: 50px;
+    height: 100px;
+    background-color:#663300;
+}
+
+#water{
+    top:50px;
+    left:120px;
+    position:absolute;
+    width: 50px;
+    height: 200px;
+    background-color:#3399ff;
+}
+
