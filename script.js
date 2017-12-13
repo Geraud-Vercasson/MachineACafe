@@ -182,10 +182,78 @@ function resetCoins(){
 //  }
 // }
 
+
 // function addCoin(coin){
 //     COMPTEUR += coinValues[coin];
 //     COMPTEUR = (Math.round(COMPTEUR*100))/100;
 
+// fonction ​​removeSugar() Version Vero
+
+// function removeSugar() {
+
+// 	if (nbSucres >0) {
+// 		nbSucres = nbSucres - 1 ;
+// 	}  
+// 	console.log(nbSucres);
+// 	if (nbSucres === 1) {
+// 		$("#sucreUn").attr("src", "images/sucre_plein.png");
+// 		$("#sucreDeux").attr("src", "images/sucre_vide.png");
+// 		$("#sucreTrois").attr("src", "images/sucre_vide.png");
+// 		$("#sucreQuatre").attr("src", "images/sucre_vide.png");
+// 		$("#sucreCinq").attr("src", "images/sucre_vide.png");
+// 	} else if (nbSucres === 2)  {
+// 		$("#sucreUn").attr("src", "images/sucre_plein.png");
+// 		$("#sucreDeux").attr("src", "images/sucre_plein.png");
+// 		$("#sucreTrois").attr("src", "images/sucre_vide.png");
+// 		$("#sucreQuatre").attr("src", "images/sucre_vide.png");
+// 		$("#sucreCinq").attr("src", "images/sucre_vide.png");
+// 	} else if (nbSucres === 3)  {
+// 		$("#sucreUn").attr("src", "images/sucre_plein.png");
+// 		$("#sucreDeux").attr("src", "images/sucre_plein.png");
+// 		$("#sucreTrois").attr("src", "images/sucre_plein.png");
+// 		$("#sucreQuatre").attr("src", "images/sucre_vide.png");
+// 		$("#sucreCinq").attr("src", "images/sucre_vide.png");
+// 	} else if (nbSucres === 4)  {
+// 		$("#sucreUn").attr("src", "images/sucre_plein.png");
+// 		$("#sucreDeux").attr("src", "images/sucre_plein.png");
+// 		$("#sucreTrois").attr("src", "images/sucre_plein.png");
+// 		$("#sucreQuatre").attr("src", "images/sucre_plein.png");
+// 		$("#sucreCinq").attr("src", "images/sucre_vide.png");
+// 	} else if (nbSucres === 5)  {
+// 		$("#sucreUn").attr("src", "images/sucre_plein.png");
+// 		$("#sucreDeux").attr("src", "images/sucre_plein.png");
+// 		$("#sucreTrois").attr("src", "images/sucre_plein.png");
+// 		$("#sucreQuatre").attr("src", "images/sucre_plein.png");
+// 		$("#sucreCinq").attr("src", "images/sucre_plein.png");
+// 	} else {
+// 		$("#sucreUn").attr("src", "images/sucre_vide.png");
+// 		$("#sucreDeux").attr("src", "images/sucre_vide.png");
+// 		$("#sucreTrois").attr("src", "images/sucre_vide.png");
+// 		$("#sucreQuatre").attr("src", "images/sucre_vide.png");
+// 		$("#sucreCinq").attr("src", "images/sucre_vide.png");
+// 	}
+// }
+
+// function removeSugar() {
+	
+// 		if (nbSucres >0) {
+// 			nbSucres = nbSucres - 1 ;
+// 		}  
+
+// 	$(".sucre").each(function(index){
+// 		if (index < nbSucres) {
+// 			$(this).attr("src", "images/sucre_plein.png");
+// 		} else {
+// 			$(this).attr("src", "images/sucre_vide.png");
+// 		}
+// 	})
+// }
+
+// fonction ​​resetDrink() ​​désélectionne ​​toutes ​​les ​boissons
+
+//function addCoin(coin){
+//    compteur += coinValues[coin];
+//    compteur = (Math.round(compteur*100))/100;
 //     if (COMPTEUR < 1){
 //         $('#monnayeur').html('Crédit : ' + Math.round(COMPTEUR*100) + "Cts");
 //     } else {
