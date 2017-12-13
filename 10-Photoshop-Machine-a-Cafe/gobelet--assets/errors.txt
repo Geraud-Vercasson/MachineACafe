@@ -1,0 +1,2 @@
+[2017-12-13 12:06:32] layer "gobelet_vide.png copie": Expected end of input but "c" found.
+[2017-12-13 13:22:49] layer "gobelet_vide.png copie 2": Expected end of input but "c" found.
