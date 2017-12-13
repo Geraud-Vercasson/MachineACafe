@@ -1,20 +1,59 @@
+let nbSucre = 0;
+
+function buy(nb5ct, nb10ct, nb20ct, nb50ct, nb1e,nb2e, price){
+	let total = nb5ct*5 + nb10ct*10 + nb20ct*20 + nb50ct*50 + nb1e*100 + nb2e*200
+		total= total/100;
+		if(total>=price){
+			return true; 
+		} else {
+			return false;
+		}
+}
+
 
 /*Déclaration des variables*/
-let compteur = 0;
+let COMPTEUR = 0;
 let nbSucres = 1;
 
-const coinValues = {
-    btnCinqCts : 0.05,
-    btnDixCts : 0.1,
-    btnVingtCts : 0.2,
-    btnCinquanteCts : 0.5,
-    btnUnEuro: 1,
-    btnDeuxEuros: 2
-};
-
 /*Déclaration des fonctions */
-function resetDrink(){
+/*
+function addSugar(){
 
+	if (nbSucre < 4){
+		nbSucre = nbSucre + 1;
+	}
+
+
+	if (nbSucre === 1){
+		$("#sucreUn").show();
+	} else if (nbSucre === 2){
+		$("#sucreDeux").show();
+	} else if (nbSucre === 3){
+		$("#sucreTrois").show();
+	} else if (nbSucre === 4){
+		$("#sucreQuatre").show();
+	}
+
+	
+}
+
+function removeSugar(){
+
+	if (nbSucre > 0 && nbSucre < 5){
+		nbSucre = nbSucre - 1;
+	}
+	if (nbSucre === 0){
+		$("#sucreUn").hide();
+	} else if (nbSucre === 1){
+		$("#sucreDeux").hide();
+	} else if (nbSucre === 2){
+		$("#sucreTrois").hide();
+	} else if (nbSucre === 3){
+		$("#sucreQuatre").hide();
+	}
+	
+}
+v Astrid */
     let drinkPictures = $('.boisson').parent().children('img');
     drinkPictures.each(function(){
         $(this).attr('src','images/LedOff.png');
@@ -81,6 +120,26 @@ function removeSugar(){
             $(this).attr('src',srcSucreVide);
         }
     });
+}
+
+// Fonction addCoin Thomas
+function addCoin(coin){
+    COMPTEUR += coin;
+    COMPTEUR = (Math.round(COMPTEUR*100))/100;
+    if (COMPTEUR < 1){
+        $('#monnayeur').html('Crédit : ' + Math.round(COMPTEUR*100) + " Cts");
+    } else {
+        $('#monnayeur').html('Crédit : ' + COMPTEUR + " €");       
+    }
+    console.log(COMPTEUR);
+}
+
+function resetCoins(){
+    COMPTEUR = 0;
+    if ( COMPTEUR === 0){
+        $("#monnayeur").html("Crédit : " + COMPTEUR + " €");
+    }
+    console.log(COMPTEUR);
 }
 
 // function addSugar(){
@@ -162,6 +221,11 @@ function removeSugar(){
 //  }
 // }
 
+
+// function addCoin(coin){
+//     COMPTEUR += coinValues[coin];
+//     COMPTEUR = (Math.round(COMPTEUR*100))/100;
+
 // fonction ​​removeSugar() Version Vero
 
 // function removeSugar() {
@@ -209,43 +273,64 @@ function removeSugar(){
 // 	}
 // }
 
-function removeSugar() {
+// function removeSugar() {
 	
-		if (nbSucres >0) {
-			nbSucres = nbSucres - 1 ;
-		}  
+// 		if (nbSucres >0) {
+// 			nbSucres = nbSucres - 1 ;
+// 		}  
 
-	$(".sucre").each(function(index){
-		if (index < nbSucres) {
-			$(this).attr("src", "images/sucre_plein.png");
-		} else {
-			$(this).attr("src", "images/sucre_vide.png");
-		}
-	})
-}
-
-
+// 	$(".sucre").each(function(index){
+// 		if (index < nbSucres) {
+// 			$(this).attr("src", "images/sucre_plein.png");
+// 		} else {
+// 			$(this).attr("src", "images/sucre_vide.png");
+// 		}
+// 	})
+// }
 
 // fonction ​​resetDrink() ​​désélectionne ​​toutes ​​les ​boissons
 
-function addCoin(coin){
-    compteur += coinValues[coin];
-    compteur = (Math.round(compteur*100))/100;
+//function addCoin(coin){
+//    compteur += coinValues[coin];
+//    compteur = (Math.round(compteur*100))/100;
+//     if (COMPTEUR < 1){
+//         $('#monnayeur').html('Crédit : ' + Math.round(COMPTEUR*100) + "Cts");
+//     } else {
+//         $('#monnayeur').html('Crédit : ' + COMPTEUR + "€");       
+//     }
+// }
 
-    if (compteur < 1){
-        $('#monnayeur').html('Crédit : ' + Math.round(compteur*100) + "Cts");
-    } else {
-        $('#monnayeur').html('Crédit : ' + compteur + "€");       
-    }
-}
-
-function resetCoin(){
-    compteur = 0;
-    $('#monnayeur').html('Crédit : ' + compteur + "€");
-}
+// function resetCoin(){
+//     COMPTEUR = 0;
+//     $('#monnayeur').html('Crédit : ' + COMPTEUR + "€");
+// }
 
 /* Script*/
 $(document).ready(function(){
+	$("#btnCappuccino").click(function(){
+		if ($('#btnCappuccino').attr("src")=== "VU1-assets/etat_1.png"){
+		//si le bouton est gris
+			selectDrink(true, 'cappuccino');
+		} else {
+		// sinon si le bouton est rouge
+			selectDrink(false,'cappuccino');
+		}
+	});
+
+	$('#btnReset').click(function(){
+		resetDrink();
+	});
+
+	$('#lumiereSucre').children().hide();
+
+	$('#btnPlusSucre').click(function(){
+		addSugar();
+	});
+
+	$('#btnMoinsSucre').click(function(){
+		removeSugar();
+	});
+
 
     $('#btnResetDrink').click(function(){
         resetDrink();
@@ -285,15 +370,28 @@ $(document).ready(function(){
     $('#btnMoinsSucre').click(function(){
         removeSugar();
     });
-    $('.coin').click(function(){
-        let thisCoin = $(this).attr('id');
-        addCoin(thisCoin);
+
+    $(".coin").click(function(){
+    let thisCoin =  parseFloat($(this).attr("alt"));
+    //console.log(thisCoin);
+       //console.log(coin.toFixed(2));
+    addCoin(thisCoin);
+      
+    });
+
+    $("#btnResetCoin").click(function(){
+        resetCoins();
 
     });
-    $('#btnResetCoin').click(function(){
-        resetCoin();
-    });
+
+    // $('.coin').click(function(){
+    //     let thisCoin = $(this).attr('id');
+    //     addCoin(thisCoin);
+
+    // });
+    // $('#btnResetCoin').click(function(){
+    //     resetCoin();
+    // });
 
 });
-
 
