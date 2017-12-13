@@ -1,103 +1,47 @@
-#machine{
-    background-image: url('images/background.png');
+/* #machine
+#ecran
+#afficheur
+#btnCafe
+#btnChocolat
+#btnCappuccino
+#btnThe
+#imgSucre
+#btnMoinsSucre
+#btnPlusSucre 
+#sucres
+#btnPay
+#btnCancel
+#btnMaintenance
+#fente
+#renduMonnaie  IDs reservés face avant*/
+
+#machineArriere{
+    background-image: url('images/backgroundArriere.png');
     background-repeat: no-repeat;
-    width: 768px;
     height: 1024px;
+    width: 768px;
+    position: relative;
     margin: auto;
-    position: relative;
-}
-
-#ecran{
-    background-image: url('images/ecran_total.png');
-    background-repeat: no-repeat;
-    width: 544px;
-    height: 491px;
-    position: relative;
-    left: 50px;
-    top: 79px;
-}
-
-#afficheur {
-    background-image: url('images/ecranLCD.png');
-    background-repeat: no-repeat;
-    width: 485px;
-    height: 113px;
-    position: relative;
-    left: 29px;
-    top: 25px;
-    padding: 20px;
 
 }
+#ingredients{
+    position: absolute;
+    top: 290px;
+    left: 38px;
 
-#btnCafe {
-    position: absolute;
-    top: 150px;
-    left: 26px;
 }
-
-#btnChocolat {
+#btnResetArriere{
     position: absolute;
-    top: 150px;
-    left: 278px;
+    top: 493px;
+    left: 588px;
 }
-
-#btnCappuccino {
+#accessoires{
     position: absolute;
-    top: 258px;
-    left: 26px;
+    top: 504px;
+    left: 40px;
 }
-
-#btnThe{
+#piecesArriere{
     position: absolute;
-    top: 258px;
-    left: 278px;
-}
-
-#imgSucre {
-    position: absolute;
-    top: 401px;
-    left: 44px;
-}
-
-#btnMoinsSucre {
-    position: absolute;
-    top: 391px;
-    left: 130px;
-}
-
-#btnPlusSucre {
-    position: absolute;
-    top: 391px;
-    left: 349px;
-}
-
-#sucres{
-    position: absolute;
-    top: 401px;
-    left: 205px;
-}
-#btnPay {
-    position: absolute;
-    top: 227px;
-    left: 617px;
-}
-#btnCancel {
-    position: absolute;
-    top: 344px;
-    left: 617px;
-}
-#btnMaintenance {
-    position: absolute;
-    top: 460px;
-    left: 617px;
-}
-#fente {
-    position: absolute;
-    top: 79px;
-    left: 650px;
-}
-#renduMonnaie {
-    position: absolute;
-    top: 759px;
-    left: 530px;
+    top: 722px;
+    left: 66px;
 }

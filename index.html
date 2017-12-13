@@ -1,44 +1,34 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8"/>
-    <link rel="stylesheet" href="stylesheet.css"/>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="script.js"></script>
-    
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="stylesheet.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="script.js"></script>
     </head>
     <body>
-        <div id="boissons">
-            <div><button class="boisson" id="btnThe">Thé </button><img id="ledThe" src="images/LedOff.png"></div>
+        <div id="machine">
+            <div id="ecran">
+                <div id="afficheur">
+                    Texte de l'afficheur, gérer la taille / police / couleur
+                </div>
+                <img id="btnCafe" class="boisson" src="images/btn_espresso_0.png">
+                <img id="btnChocolat" class="boisson" src="images/btn_chocolat_0.png">
+                <img id="btnCappuccino" class="boisson" src="images/btn_cappuccino_0.png">
+                <img id="btnThe" class="boisson" src="images/btn_the_0.png">
+                
+                <img id="imgSucre" src="images/sucreDeco.png"> 
+                <img id="btnMoinsSucre" src="images/bouton_moins_0.png">               
+                <img id="btnPlusSucre" src="images/bouton_plus_0.png">
+                
+                <img id="sucres" src="images/Sucre_Etat_0.png">
+            </div>
+            <img id="fente" src="images/fente_Monnayeur.png">
+            <img id="btnPay" src="images/pay_off.png">
+            <img id="btnCancel" src="images/cancel_off.png">
+            <img id="btnMaintenance" src="images/maintenance_off.png">
 
-            <div><button class="boisson" id="btnChocolat">Chocolat</button><img id="ledChocolat" src="images/LedOff.png"></div>
-
-            <div><button class="boisson" id="btnCafe">Café</button><img id="ledCafe" src="images/LedOff.png"></div>
-
-            <div><button class="boisson" id="btnCappuccino">Cappuccino</button><img id="ledCappuccino" src="images/LedOff.png"></div>
-        </div>
-
-        <div id="sucres">
-            <button id="btnMoinsSucre">Moins</button>
-            <img class="sucre" id="sucreUn" src="images/LedOn.png">
-            <img class="sucre" id="sucreDeux" src="images/LedOff.png">
-            <img class="sucre" id="sucreTrois" src="images/LedOff.png">
-            <img class="sucre" id="sucreQuatre" src="images/LedOff.png">
-            <img class="sucre" id="sucreCinq" src="images/LedOff.png">
-            <button id="btnPlusSucre">Plus</button>
-        </div>
-
-        <div id="pieces">
-            <button class="coin" id="btnCinqCts">5 Cts</button>
-            <button class="coin" id="btnDixCts">10 Cts</button>
-            <button class="coin" id="btnVingtCts">20 Cts</button>
-            <button class="coin" id="btnCinquanteCts">50 Cts</button>
-            <button class="coin" id="btnUnEuro">1 €</button>
-            <button class="coin" id="btnDeuxEuros">2 €</button>
-        </div>
-        <div id="afficheurMonnaie">
-            <div id="monnayeur">Blablabla</div>
-            <button id="btnResetCoin">Reset Coins</button>
+            <img id="renduMonnaie" src="images/Rendu_monnaie.png">
         </div>
     </body>
 </html>
