@@ -1,4 +1,5 @@
-
+const compteur = 0;
+const piece = [0.5, 0.10, 0.20, 0.50, 1, 2];
 /*Déclaration des variables*/
 let compteur = 0;
 let nbSucres = 1;
@@ -74,13 +75,17 @@ function removeSugar(){
     });
 }
 
+
+function addCoin(coin){
+
+}
+
+
 /* Script*/
 $(document).ready(function(){
-
     $('#btnResetDrink').click(function(){
         resetDrink();
     });
-
     $('#btnThe').click(function(){
         let select = true;
         if ($('#ledThe').attr('src') === 'images/LedOn.png'){
@@ -88,7 +93,6 @@ $(document).ready(function(){
         }
         selectDrink(select,'thé');
     });
-
     $('#btnCafe').click(function(){
         let select = true;
         if ($('#ledCafe').attr('src') === 'images/LedOn.png'){
@@ -96,22 +100,19 @@ $(document).ready(function(){
         }
         selectDrink(select,'café');
     });
-
     $('#btnPlusSucre').click(function(){
         addSugar();
     });
     $('#btnMoinsSucre').click(function(){
         removeSugar();
     });
-    $('.coin').click(function(){
-        let thisCoin = $(this).attr('id');
-        addCoin(thisCoin);
-
-    });
-    $('#btnResetCoin').click(function(){
-        resetCoin();
-    });
-
+    // $('.coin').click(function(){
+    //    let thisCoin = $(this).attr('id');
+    //    addCoin(thisCoin);
+    // });
+    // $('#btnResetCoin').click(function(){
+    //    resetCoin();
+    // });
     $( "#btnChocolat").click(function() {
         let isOn=true;
          //     selectDrink(isOn,"chocolat");
@@ -123,7 +124,6 @@ $(document).ready(function(){
              isOn = false;
          }
          selectDrink(isOn,'chocolat');
-    
         });
 
 });
