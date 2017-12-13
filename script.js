@@ -122,6 +122,46 @@ function removeSugar(){
 //     });
 // }
 
+// fonction addSugar() Version Vero
+
+// function addSugar() {
+//  if (nbSucres <5) {
+//      nbSucres = nbSucres + 1;
+//  }  
+//  console.log(nbSucres);
+//  if (nbSucres === 1) {
+//      $("#sucreUn").attr("src", "images/sucre_plein.png");
+//      $("#sucreDeux").attr("src", "images/sucre_vide.png");
+//      $("#sucreTrois").attr("src", "images/sucre_vide.png");
+//      $("#sucreQuatre").attr("src", "images/sucre_vide.png");
+//      $("#sucreCinq").attr("src", "images/sucre_vide.png");
+//  } else if (nbSucres === 2)  {
+//      $("#sucreUn").attr("src", "images/sucre_plein.png");
+//      $("#sucreDeux").attr("src", "images/sucre_plein.png");
+//      $("#sucreTrois").attr("src", "images/sucre_vide.png");
+//      $("#sucreQuatre").attr("src", "images/sucre_vide.png");
+//      $("#sucreCinq").attr("src", "images/sucre_vide.png");
+//  } else if (nbSucres === 3)  {
+//      $("#sucreUn").attr("src", "images/sucre_plein.png");
+//      $("#sucreDeux").attr("src", "images/sucre_plein.png");
+//      $("#sucreTrois").attr("src", "images/sucre_plein.png");
+//      $("#sucreQuatre").attr("src", "images/sucre_vide.png");
+//      $("#sucreCinq").attr("src", "images/sucre_vide.png");
+//  } else if (nbSucres === 4)  {
+//      $("#sucreUn").attr("src", "images/sucre_plein.png");
+//      $("#sucreDeux").attr("src", "images/sucre_plein.png");
+//      $("#sucreTrois").attr("src", "images/sucre_plein.png");
+//      $("#sucreQuatre").attr("src", "images/sucre_plein.png");
+//      $("#sucreCinq").attr("src", "images/sucre_vide.png");
+//  } else if (nbSucres === 5)  {
+//      $("#sucreUn").attr("src", "images/sucre_plein.png");
+//      $("#sucreDeux").attr("src", "images/sucre_plein.png");
+//      $("#sucreTrois").attr("src", "images/sucre_plein.png");
+//      $("#sucreQuatre").attr("src", "images/sucre_plein.png");
+//      $("#sucreCinq").attr("src", "images/sucre_plein.png");
+//  }
+// }
+
 function addCoin(coin){
     compteur += coinValues[coin];
     compteur = (Math.round(compteur*100))/100;
@@ -160,6 +200,18 @@ $(document).ready(function(){
         }
         selectDrink(select,'café');
     });
+        $( "#btnChocolat").click(function() {
+        let isOn=true;
+         //     selectDrink(isOn,"chocolat");
+         let srcImageActuelle = $("#ledChocolat").attr("src");
+    
+         if (srcImageActuelle === "images/LedOff.png") {
+             isOn = true;
+         } else {
+             isOn = false;
+         }
+         selectDrink(isOn,'chocolat');
+    });
 
     $('#btnPlusSucre').click(function(){
         addSugar();
@@ -176,26 +228,6 @@ $(document).ready(function(){
         resetCoin();
     });
 
-    $( "#btnChocolat").click(function() {
-        let isOn=true;
-         // 	selectDrink(isOn,"chocolat");
-         let srcImageActuelle = $("#ledChocolat").attr("src");
-    
-         if (srcImageActuelle === "images/LedOff.png") {
-             isOn = true;
-         } else {
-             isOn = false;
-         }
-         selectDrink(isOn,'chocolat');
-    
-        });
-
 });
-
-// fonction ​ ​​selecDrink(booléen, ​boisson) qui​ ​permet ​ ​de sélectionner ​ ​ou ​ ​désélectionner ​ ​une ​ ​boisson ​ ​(allumer ​ ​ou ​ ​éteindre ​ ​la ​ ​led).
-
-// fonction ​ ​​resetDrink() ​ ​​qui ​ ​désélectionne ​ ​toutes ​ ​les ​ ​boissons
-
-
 
 
