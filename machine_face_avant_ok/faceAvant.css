@@ -102,12 +102,6 @@
     left: 530px;
 }
 
-#pieces {
-    position: absolute;
-    top: 20px;
-    left: 170px;
-}
-
 .boissonSucre {
     background-image: url(Images-gobelet/Sucre.png);
     background-repeat: no-repeat;
@@ -150,7 +144,8 @@
 
 .gobeletElement {
     width: 239px;
-    height: 300px
+    height: 300px;
+    pointer-events: none;
 }
 
 #gobeletFond {
@@ -160,8 +155,8 @@
 
 #touillette {
     position: absolute;
-    top: 30px;
-    left: 140px;
+    top: 28px;
+    left: 110px;
     z-index: 1;
 }
 #boisson {
@@ -183,8 +178,32 @@
     z-index: 4;
 }
 
+#commande{
+    position: absolute;
+}
+
+#base {
+    background-image: url('Images-gobelet/Background.png');
+    background-repeat: no-repeat;
+    position: relative;
+    z-index: -2;
+    width: 768px;
+    height: 1024px;
+    margin: auto;
+}
+
 #gobeletConstruit {
     position: absolute;
     top: 665px;
-    left: 115px;
+    left: 290px;
+}
+
+#porteGobelet{
+    position: absolute;
+    background-image: url("Images-gobelet/PorteGobelet.png");
+    background-repeat: no-repeat;
+    width: 480px;
+    height: 356px;
+    top: 665px;
+    left: 48px;
 }
