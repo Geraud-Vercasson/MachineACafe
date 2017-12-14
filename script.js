@@ -1,6 +1,4 @@
 
-
-
 /*Déclaration des variables*/
 let COMPTEUR = 0;
 let NBSUCRES = 0;
@@ -190,6 +188,7 @@ function addCoin(coin){
 }
 
 function resetCoins(){
+
     COMPTEUR = 0;
     let coins = ['5cts','10cts','20cts','50cts','1euro','2euros'];
 
@@ -203,17 +202,69 @@ function resetCoins(){
     }
 }
 
-<<<<<<< HEAD
-// Function stocks
+// Fonction addCoin Véro
+
+// function addCoin(coin) {
+//     COMPTEUR += coin;
+//     // Je gère les problèmes de virgules
+    
+//     let resultatAAfficher= Math.round((COMPTEUR)*100) /100;
+//     console.log(resultatAAfficher);
+    
+//     // Je gère l'affichage avec 2 chiffres après la virgule
+
+//     resultatAAfficher = resultatAAfficher.toFixed([2]);
+
+//         $("#afficheurMonnaie").html("Crédit : " + resultatAAfficher + " €");
+//     // }
+    
+// }
+
+
+// Functions gestion du stock d'ingrédients
+
+function consumeCoffee(nbDoses){
+    let heightNow = $("#coffee").css("height").split('px')[0];
+    // console.log(heightNow);
+    let retire =  heightNow - (nbDoses*10);
+    // console.log(retire);
+    $("#coffee").css("height", retire);
+}
+
+function consumeChocolat(nbDoses){
+    let heightNow = $("#chocolat").css("height").split('px')[0];
+    // console.log(heightNow);
+    let retire =  heightNow - (nbDoses*10);
+    // console.log(retire);
+    $("#chocolat").css("height", retire);
+}
+
+function consumeThe(nbDoses){
+    let heightNow = $("#the").css("height").split('px')[0];
+    // console.log(heightNow);
+    let retire =  heightNow - (nbDoses*10);
+    // console.log(retire);
+    $("#the").css("height", retire);
+}
 
 function consumeWater(nbDoses){
     let heightNow = $("#water").css("height").split('px')[0];
-    console.log(heightNow);
+    // console.log(heightNow);
     let retire =  heightNow - (nbDoses*10);
-    
-    console.log(retire);
+    // console.log(retire);
     $("#water").css("height", retire);
-   }
+}
+
+function consumeMilk(nbDoses){
+    let heightNow = $("#milk").css("height").split('px')[0];
+    // console.log(heightNow);
+    let retire =  heightNow - (nbDoses*10);
+    // console.log(retire);
+    $("#milk").css("height", retire);
+}
+
+// Fonction addWater non utilisée car bouton reset pour remplir tout
+
 
 // function addWater(nbDoses){
 //     let heightNow = $("#water").css("height").split('px')[0];
@@ -224,7 +275,7 @@ function consumeWater(nbDoses){
    
 // }
 
-=======
+
 function buy(nb5ct, nb10ct, nb20ct, nb50ct, nb1e,nb2e, price){
     let total = nb5ct*5 + nb10ct*10 + nb20ct*20 + nb50ct*50 + nb1e*100 + nb2e*200
         total= total/100;
@@ -234,9 +285,10 @@ function buy(nb5ct, nb10ct, nb20ct, nb50ct, nb1e,nb2e, price){
             return false;
         }
 }
->>>>>>> a8f4a28e23b11c3d84f6c8f8b08a3c9e3ed3d331
 
-    /* Script*/
+
+/* Script*/
+
 $(document).ready(function(){
 
     $('#pieces').hide();
@@ -258,48 +310,56 @@ $(document).ready(function(){
     });
     
     
-    $('#btnThe').click(function(){
-        let select = true;
-        if ($('#btnThe').attr('src') === 'images/btn_the_2.png'){
-            select = false;
-        }
-        consumeWater(2)
-        selectDrink(select,'thé');
-    });
-    
     $('#btnCafe').click(function(){
         let select = true;
         if ($('#btnCafe').attr('src') === 'images/btn_espresso_2.png'){
-<<<<<<< HEAD
+
             select = false;
         }
-            addWater(2);
-        
+
+        consumeCoffee(1);
+        consumeWater(2);
+
         selectDrink(select,'café');
-=======
-        select = false;
-    }
-    selectDrink(select,'café');
->>>>>>> a8f4a28e23b11c3d84f6c8f8b08a3c9e3ed3d331
+
     });
+    
+
     $( "#btnChocolat").click(function() {
         let isOn=true;
-        //     selectDrink(isOn,"chocolat");
-         let srcImageActuelle = $("#btnChocolat").attr("src");
+        let srcImageActuelle = $("#btnChocolat").attr("src");
          
          if (srcImageActuelle === "images/btn_chocolat_0.png") {
              isOn = true;
             } else {
                 isOn = false;
             }
-            selectDrink(isOn,'chocolat');
-        });
+            
+            consumeMilk(1);
+            consumeChocolat(1);
+            consumeWater(2);
 
-<<<<<<< HEAD
+            selectDrink(isOn,'chocolat');
+    });
+
+
+    $('#btnThe').click(function(){
+        let select = true;
+        if ($('#btnThe').attr('src') === 'images/btn_the_2.png'){
+            select = false;
+        }
+        consumeWater(2)
+        consumeThe (5);
+
+        selectDrink(select,'thé');
+    });
+
+
     $('#reset').click(function(){
         $('#water').css('height','300');
+        
 
-=======
+
     $('#btnPay').click(function(){
     });
     
@@ -340,7 +400,7 @@ $(document).ready(function(){
     
     $('#btn2euro').click(function(){
         addCoin(2);
->>>>>>> a8f4a28e23b11c3d84f6c8f8b08a3c9e3ed3d331
+
     });
 
 });
