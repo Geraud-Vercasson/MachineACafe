@@ -271,7 +271,7 @@ function consumeWater(nbDoses){
     console.log(heightNow);
     let retire =  heightNow - (nbDoses*10);
     console.log(retire);
-    $("the").css("height", retire);
+    $("#the").css("height", retire);
    }
 
     function consumeChocolat(nbDoses){
