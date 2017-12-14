@@ -393,16 +393,6 @@ $(document).ready(function(){
         selectDrink(select,'thé');
     });
 
-
-    
-    $('#btnPlusSucre').click(function(){
-        addSugar();
-    });
-    
-    $('#btnMoinsSucre').click(function(){
-        removeSugar();
-    });
-
     $('#fente').click(function(){
         if ($('#pieces').css("display") === "none"){
             
