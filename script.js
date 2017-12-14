@@ -86,7 +86,6 @@ function removeSugar(){
 // Fonction addCoin Thomas
 function addCoin(coin){
     COMPTEUR += coin;
-    COMPTEUR = (Math.round(COMPTEUR*100))/100;
     if (COMPTEUR < 1){
         $('#monnayeur').html('Crédit : ' + Math.round(COMPTEUR*100) + " Cts");
     } else {
