@@ -28,58 +28,61 @@
 /* gestion du stock des ingrédients */ 
 
 #coffee{
-    top:150px;
-    left:50px;
+    top:140px;
+    left:55px;
     position:absolute;
     width: 50px;
-    height: 100px;
+    height: 150px;
     background-color:#663300;
 }
 
 #chocolat{
-    top:50px;
-    left:120px;
+    top:140px;
+    left:180px;
     position:absolute;
     width: 50px;
-    height: 200px;
-    background-color:#3399ff;
+    height: 150px;
+    background-color:#4c4b45;
 }
 
 #the{
-    top:50px;
-    left:120px;
+    top:140px;
+    left:300px;
     position:absolute;
     width: 50px;
-    height: 200px;
-    background-color:#3399ff;
+    height: 150px;
+    background-color:#6fEE84;
 }
 
 #sugar{
-    top:50px;
-    left:120px;
+    top:140px;
+    left:420px;
     position:absolute;
     width: 50px;
-    height: 200px;
-    background-color:#3399ff;
+    height: 150px;
+    background-color:#c2c4b2;
 }
 
 #water{
-    top:50px;
-    left:120px;
+    top:140px;
+    left:540px;
     position:absolute;
     width: 50px;
-    height: 200px;
+    height: 150px;
     background-color:#3399ff;
+}
+#milk{
+    top:140px;
+    left:680px;
+    position:absolute;
+    width: 50px;
+    height: 150px;
+    background-color:white;
 }
 
-#milk{
-    top:50px;
-    left:120px;
-    position:absolute;
-    width: 50px;
-    height: 200px;
-    background-color:#3399ff;
-}
+
+
+
 
 #ingredients{
     position: absolute;

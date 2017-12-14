@@ -1,6 +1,4 @@
 
-
-
 /*Déclaration des variables*/
 let COMPTEUR = 0;
 let NBSUCRES = 0;
@@ -199,6 +197,7 @@ function addCoin(coin){
 }
 
 function resetCoins(){
+
     COMPTEUR = 0;
     let coins = ['5cts','10cts','20cts','50cts','1euro','2euros'];
 
@@ -212,6 +211,85 @@ function resetCoins(){
     }
 }
 
+// Fonction addCoin Véro
+
+// function addCoin(coin) {
+//     COMPTEUR += coin;
+//     // Je gère les problèmes de virgules
+    
+//     let resultatAAfficher= Math.round((COMPTEUR)*100) /100;
+//     console.log(resultatAAfficher);
+    
+//     // Je gère l'affichage avec 2 chiffres après la virgule
+
+//     resultatAAfficher = resultatAAfficher.toFixed([2]);
+
+//         $("#afficheurMonnaie").html("Crédit : " + resultatAAfficher + " €");
+//     // }
+    
+// }
+
+
+// Functions gestion du stock d'ingrédients
+
+
+function consumeWater(nbDoses){
+    let heightNow = $("#water").css("height").split('px')[0];
+    console.log(heightNow);
+    let retire =  heightNow - (nbDoses*10);
+    
+    console.log(retire);
+    $("#water").css("height", retire);
+   }
+
+    function consumeSugar(nbDoses){
+    let heightNow = $("#sugar").css("height").split('px')[0];
+    console.log(heightNow);
+    let retire =  heightNow - (nbDoses*10);
+    console.log(retire);
+    $("#sugar").css("height", retire);
+   }
+
+   function consumeMilk(nbDoses){
+    let heightNow = $("#milk").css("height").split('px')[0];
+    console.log(heightNow);
+    let retire =  heightNow - (nbDoses*10);
+    console.log(retire);
+    $("#milk").css("height", retire);
+   }
+
+    function consumeCoffe(nbDoses){
+    let heightNow = $("#coffee").css("height").split('px')[0];
+    console.log(heightNow);
+    let retire =  heightNow - (nbDoses*10);
+    console.log(retire);
+    $("#coffee").css("height", retire);
+   }
+
+      function consumeThe(nbDoses){
+    let heightNow = $("#the").css("height").split('px')[0];
+    console.log(heightNow);
+    let retire =  heightNow - (nbDoses*10);
+    console.log(retire);
+    $("the").css("height", retire);
+   }
+
+    function consumeChocolat(nbDoses){
+    let heightNow = $("#chocolat").css("height").split('px')[0];
+    console.log(heightNow);
+    let retire =  heightNow - (nbDoses*10);
+    console.log(retire);
+    $("#chocolat").css("height", retire);
+   }
+ //    function addIngredient(nbDoses){
+ //     let heightNow = $("#water, #coffee, #chocolat, #the, #sugar, #milk").css("height").split('px')[0];
+ //     console.log(heightNow);
+ //     let retire =  parseInt(heightNow) + (nbDoses*10);
+ //     console.log(retire);
+ //     $("#water, #coffee, #chocolat, #the, #sugar, #milk").css("height", retire);
+ 
+ // }
+
 function buy(nb5ct, nb10ct, nb20ct, nb50ct, nb1e,nb2e, price){
     let total = nb5ct*5 + nb10ct*10 + nb20ct*20 + nb50ct*50 + nb1e*100 + nb2e*200;
         total= total/100;
@@ -221,6 +299,7 @@ function buy(nb5ct, nb10ct, nb20ct, nb50ct, nb1e,nb2e, price){
             return false;
         }
 }
+
 
 function displayDrink(){
     $('#gobeletFond').addClass('gobeletBack');
@@ -253,7 +332,8 @@ function displayDrink(){
    function removeSucre(){
     $('#sucre').removeClass('boissonSucre');
 }
-
+=======
+/* Script*/
 function removeTouillette(){
     $('#touillette').removeClass('touillette');
 }
@@ -269,15 +349,7 @@ function removeDrink(){
 $(document).ready(function(){
     
     $('#pieces').hide();
-    
-    $("#btnCappuccino").click(function(){
-        let select = true;
-        if ($("#btnCappuccino").attr('src') === 'images/btn_cappuccino_2.png'){
-            select = false;
-        }
-        selectDrink(select,"cappuccino");
-    });
-    
+
     $('#btnPlusSucre').click(function(){
         addSugar();
     });
@@ -286,15 +358,56 @@ $(document).ready(function(){
         removeSugar();
     });
     
+    $("#btnCappuccino").click(function(){
+        let select = true;
+        if ($("#btnCappuccino").attr('src') === 'images/btn_cappuccino_2.png'){
+            select = false;
+        }
+        consumeWater(2);
+        consumeMilk(1);
+        consumeCoffe(1);
+        selectDrink(select,"cappuccino");
+    });
     
+    $('#btnCafe').click(function(){
+        let select = true;
+        if ($('#btnCafe').attr('src') === 'images/btn_espresso_2.png'){
+            select = false;
+        }
+        consumeWater(3);
+        consumeCoffe(2);
+        selectDrink(select,'café');
+    });
+    
+    $('#btnChocolat').click(function(){
+        let select = true;
+        if ($('#btnChocolat').attr('src') === 'images/btn_chocolat_2.png'){
+            select = false;
+        }
+        consumeWater(3);
+        consumeChocolat(2);
+        selectDrink(select,'chocolat');
+    });
+
     $('#btnThe').click(function(){
         let select = true;
         if ($('#btnThe').attr('src') === 'images/btn_the_2.png'){
             select = false;
         }
-        selectDrink(select,'thé');
+        consumeWater(3);
+        consumeThe(1);
+        selectDrink(select,'the');
     });
-    
+
+    $("#btnResetArriere").click(function(){
+        $("#water").css("height","150");
+        $("#chocolat").css("height","150");
+        $("#coffee").css("height","150");
+        $("#sugar").css("height","150");
+        $("#the").css("height","150");
+        $("#milk").css("height","150");
+    });
+
     $('#btnCafe').click(function(){
         let select = true;
         if ($('#btnCafe').attr('src') === 'images/btn_espresso_2.png'){
@@ -316,8 +429,17 @@ $(document).ready(function(){
         selectDrink(isOn,'chocolat');
     });
     
+    $('#btnPlusSucre').click(function(){
+        addSugar();
+    });
     
-    
+    $('#btnMoinsSucre').click(function(){
+        removeSugar();
+    });
+
+    // $('#reset').click(function(){
+    //     $("#water","#coffee","chocolat","the","sugar","milk").css('height','300');
+
     $('#fente').click(function(){
         if ($('#pieces').css("display") === "none"){
             
@@ -355,6 +477,8 @@ $(document).ready(function(){
     
     $('#btn2euro').click(function(){
         addCoin(2);
+
+
     });
     
     $('#btnPay').click(function(){
@@ -376,7 +500,6 @@ $(document).ready(function(){
         } else {
             affiche('crédit insuffisant ou pas select : crédit actuel ' + COMPTEUR + '€');
         }
-        
         
     });
 
