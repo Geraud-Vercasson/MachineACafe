@@ -54,6 +54,25 @@ function removeSugar(){
 }
 v Astrid */
 
+function affiche(string){
+    $('#afficheur').html(string);
+}
+
+function total(){
+    let total = 0;
+
+    total += PIECES['5cts'] * 0.05;
+    total += PIECES['10cts'] * 0.10;
+    total += PIECES['20cts'] * 0.20;
+    total += PIECES['50cts'] * 0.50;
+    total += PIECES['1euro'] * 1;
+    total += PIECES['2euros'] * 2;
+
+    total = Math.round(total * 100) / 100
+
+    return total;
+}
+
 function resetDrink(){
     $('#btnThe').attr('src', 'images/btn_the_0.png');
     $('#btnCafe').attr("src","images/btn_espresso_0.png");
@@ -64,167 +83,173 @@ function resetDrink(){
         // });
     }
     
-    function selectDrink(doSelect, drink){
-        resetDrink();
-        if (drink === 'thé'){
-            if (doSelect === true){
-                $('#btnThe').attr('src', 'images/btn_the_2.png');
-            } else {
-                $('#btnThe').attr('src', 'images/btn_the_0.png');
-            }
-        }
-        
-        if (drink === 'café'){
-            if (doSelect === true) {
-                $('#btnCafe').attr("src","images/btn_espresso_2.png");
-            } else {
-                $('#btnCafe').attr("src","images/btn_espresso_0.png");
-            }
-        }
-        
-        if (drink === 'chocolat'){
-            if (doSelect === true) {
-                $("#btnChocolat").attr("src", "images/btn_chocolat_2.png");
-            } else {
-                $("#btnChocolat").attr("src", "images/btn_chocolat_0.png");
-            }
-        }
-        
-        if (drink === 'cappuccino'){
-            if (doSelect === true) {
-                $("#btnCappuccino").attr("src", "images/btn_cappuccino_2.png");
-            } else {
-                $("#btnCappuccino").attr("src", "images/btn_cappuccino_0.png");
-            }
-        }
-    }
-    
-    function addSugar(){
-        let tableauSrcSucres = ["images/Sucre_Etat_0.png",
-        "images/Sucre_Etat_1.png",
-        "images/Sucre_Etat_2.png",
-        "images/Sucre_Etat_3.png",
-        "images/Sucre_Etat_4.png",
-        "images/Sucre_Etat_5.png"];
-        
-        if (NBSUCRES < 5) {
-            NBSUCRES = NBSUCRES + 1;
-        }
-        
-        $('#sucres').attr('src',tableauSrcSucres[NBSUCRES]);
-        
-    }
-    
-    function removeSugar(){
-        let tableauSrcSucres = ["images/Sucre_Etat_0.png",
-        "images/Sucre_Etat_1.png",
-        "images/Sucre_Etat_2.png",
-        "images/Sucre_Etat_3.png",
-        "images/Sucre_Etat_4.png",
-        "images/Sucre_Etat_5.png"];
-        
-        if (NBSUCRES > 0) {
-            NBSUCRES = NBSUCRES - 1;
-        }
-        
-        $('#sucres').attr('src',tableauSrcSucres[NBSUCRES]);
-        
-    }
-    
-    // Fonction addCoin Thomas
-    function addCoin(coin){
-
-        COMPTEUR += coin;
-        COMPTEUR = (Math.round(COMPTEUR*100))/100;
-        if (COMPTEUR < 1){
-            $('#monnayeur').html('Crédit : ' + Math.round(COMPTEUR*100) + " Cts");
+function selectDrink(doSelect, drink){
+    resetDrink();
+    if (drink === 'thé'){
+        if (doSelect === true){
+            $('#btnThe').attr('src', 'images/btn_the_2.png');
         } else {
-            $('#monnayeur').html('Crédit : ' + COMPTEUR + " €");       
-        }
-        switch (coin){
-            case 0.05:
-            PIECES['5cts'] += 1;
-            break;
-
-            case 0.10:
-            PIECES['10cts'] += 1;
-            break;
-
-            case 0.20:
-            PIECES['20cts'] += 1;
-            break;
-
-            case 0.50:
-            PIECES['50cts'] += 1;
-            break;
-
-            case 1:
-            PIECES['1euro'] += 1;
-            break;
-
-            case 2:
-            PIECES['2euros'] += 1;
-            break;
+            $('#btnThe').attr('src', 'images/btn_the_0.png');
         }
     }
     
-    function resetCoins(){
-        COMPTEUR = 0;
-        let coins = ['5cts','10cts','20cts','50cts','1euro','2euros'];
-
-        if ( COMPTEUR === 0){
-            $("#monnayeur").html("Crédit : " + COMPTEUR + " €");
-        }
-        console.log(COMPTEUR);
-
-        for (let i = 0; i < coins.length; i++){
-            PIECES[coins[i]] = 0;
+    if (drink === 'café'){
+        if (doSelect === true) {
+            $('#btnCafe').attr("src","images/btn_espresso_2.png");
+        } else {
+            $('#btnCafe').attr("src","images/btn_espresso_0.png");
         }
     }
     
-    function buy(nb5ct, nb10ct, nb20ct, nb50ct, nb1e,nb2e, price){
-        let total = nb5ct*5 + nb10ct*10 + nb20ct*20 + nb50ct*50 + nb1e*100 + nb2e*200
-            total= total/100;
-            if(total>=price){
-                return true; 
-            } else {
-                return false;
-            }
+    if (drink === 'chocolat'){
+        if (doSelect === true) {
+            $("#btnChocolat").attr("src", "images/btn_chocolat_2.png");
+        } else {
+            $("#btnChocolat").attr("src", "images/btn_chocolat_0.png");
+        }
     }
     
+    if (drink === 'cappuccino'){
+        if (doSelect === true) {
+            $("#btnCappuccino").attr("src", "images/btn_cappuccino_2.png");
+        } else {
+            $("#btnCappuccino").attr("src", "images/btn_cappuccino_0.png");
+        }
+    }
+}
+
+function addSugar(){
+    let tableauSrcSucres = ["images/Sucre_Etat_0.png",
+    "images/Sucre_Etat_1.png",
+    "images/Sucre_Etat_2.png",
+    "images/Sucre_Etat_3.png",
+    "images/Sucre_Etat_4.png",
+    "images/Sucre_Etat_5.png"];
+    
+    if (NBSUCRES < 5) {
+        NBSUCRES = NBSUCRES + 1;
+    }
+    
+    $('#sucres').attr('src',tableauSrcSucres[NBSUCRES]);
+    
+}
+
+function removeSugar(){
+    let tableauSrcSucres = ["images/Sucre_Etat_0.png",
+    "images/Sucre_Etat_1.png",
+    "images/Sucre_Etat_2.png",
+    "images/Sucre_Etat_3.png",
+    "images/Sucre_Etat_4.png",
+    "images/Sucre_Etat_5.png"];
+    
+    if (NBSUCRES > 0) {
+        NBSUCRES = NBSUCRES - 1;
+    }
+    
+    $('#sucres').attr('src',tableauSrcSucres[NBSUCRES]);
+    
+}
+
+// Fonction addCoin Thomas
+function addCoin(coin){
+
+    COMPTEUR += coin;
+    COMPTEUR = (Math.round(COMPTEUR*100))/100;
+    if (COMPTEUR < 1){
+        $('#monnayeur').html('Crédit : ' + Math.round(COMPTEUR*100) + " Cts");
+    } else {
+        $('#monnayeur').html('Crédit : ' + COMPTEUR + " €");       
+    }
+    switch (coin){
+        case 0.05:
+        PIECES['5cts'] += 1;
+        break;
+
+        case 0.1:
+        PIECES['10cts'] += 1;
+        break;
+
+        case 0.2:
+        PIECES['20cts'] += 1;
+        break;
+
+        case 0.5:
+        PIECES['50cts'] += 1;
+        break;
+
+        case 1:
+        PIECES['1euro'] += 1;
+        break;
+
+        case 2:
+        PIECES['2euros'] += 1;
+        break;
+    }
+
+    affiche(total().toFixed(2));
+    
+}
+
+function resetCoins(){
+    COMPTEUR = 0;
+    let coins = ['5cts','10cts','20cts','50cts','1euro','2euros'];
+
+    if ( COMPTEUR === 0){
+        $("#monnayeur").html("Crédit : " + COMPTEUR + " €");
+    }
+    console.log(COMPTEUR);
+
+    for (let i = 0; i < coins.length; i++){
+        PIECES[coins[i]] = 0;
+    }
+}
+
+function buy(nb5ct, nb10ct, nb20ct, nb50ct, nb1e,nb2e, price){
+    let total = nb5ct*5 + nb10ct*10 + nb20ct*20 + nb50ct*50 + nb1e*100 + nb2e*200
+        total= total/100;
+        if(total>=price){
+            return true; 
+        } else {
+            return false;
+        }
+}
+
     /* Script*/
-    $(document).ready(function(){
-        $("#btnCappuccino").click(function(){
-            let select = true;
-            if ($("#btnCappuccino").attr('src') === 'images/btn_cappuccino_2.png'){
-                select = false;
-            }
-            selectDrink(select,"cappuccino");
-        });
-        
-        $('#btnPlusSucre').click(function(){
-            addSugar();
-        });
-        
-        $('#btnMoinsSucre').click(function(){
-            removeSugar();
-        });
-        
-        
-        $('#btnThe').click(function(){
-            let select = true;
-            if ($('#btnThe').attr('src') === 'images/btn_the_2.png'){
-                select = false;
-            }
-            selectDrink(select,'thé');
-        });
-        
-        $('#btnCafe').click(function(){
-            let select = true;
-            if ($('#btnCafe').attr('src') === 'images/btn_espresso_2.png'){
+$(document).ready(function(){
+
+    $('#pieces').hide();
+
+    $("#btnCappuccino").click(function(){
+        let select = true;
+        if ($("#btnCappuccino").attr('src') === 'images/btn_cappuccino_2.png'){
             select = false;
         }
-        selectDrink(select,'café');
+        selectDrink(select,"cappuccino");
+    });
+    
+    $('#btnPlusSucre').click(function(){
+        addSugar();
+    });
+    
+    $('#btnMoinsSucre').click(function(){
+        removeSugar();
+    });
+    
+    
+    $('#btnThe').click(function(){
+        let select = true;
+        if ($('#btnThe').attr('src') === 'images/btn_the_2.png'){
+            select = false;
+        }
+        selectDrink(select,'thé');
+    });
+    
+    $('#btnCafe').click(function(){
+        let select = true;
+        if ($('#btnCafe').attr('src') === 'images/btn_espresso_2.png'){
+        select = false;
+    }
+    selectDrink(select,'café');
     });
     $( "#btnChocolat").click(function() {
         let isOn=true;
@@ -238,6 +263,48 @@ function resetDrink(){
             }
             selectDrink(isOn,'chocolat');
         });
+
+    $('#btnPay').click(function(){
+    });
+    
+    $('#fente').click(function(){
+        if ($('#pieces').css("display") === "none"){
+            
+            $('#pieces').show();
+        } else {
+
+            $('#pieces').hide();
+        }
+    });
+
+    $('#btn5cts').click(function(){
+        addCoin(0.05);
+    });
+
+    
+    $('#btn10cts').click(function(){
+        addCoin(0.1);
+    });
+
+    
+    $('#btn20cts').click(function(){
+        addCoin(0.2);
+    });
+
+    
+    $('#btn50cts').click(function(){
+        addCoin(0.5);
+    });
+
+    
+    $('#btn1euro').click(function(){
+        addCoin(1);
+    });
+
+    
+    $('#btn2euro').click(function(){
+        addCoin(2);
+    });
 
 });
 
