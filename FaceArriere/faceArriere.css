@@ -34,6 +34,7 @@
     width: 50px;
     height: 150px;
     background-color:#663300;
+    border-radius: 15px;
 }
 
 #chocolat{
@@ -43,6 +44,7 @@
     width: 50px;
     height: 150px;
     background-color:#4c4b45;
+    border-radius: 15px;
 }
 
 #the{
@@ -52,6 +54,7 @@
     width: 50px;
     height: 150px;
     background-color:#6fEE84;
+    border-radius: 15px;
 }
 
 #sugar{
@@ -61,6 +64,7 @@
     width: 50px;
     height: 150px;
     background-color:#c2c4b2;
+    border-radius: 15px;
 }
 
 #water{
@@ -70,6 +74,7 @@
     width: 50px;
     height: 150px;
     background-color:#3399ff;
+    border-radius: 15px;
 }
 #milk{
     top:140px;
@@ -78,11 +83,8 @@
     width: 50px;
     height: 150px;
     background-color:white;
+    border-radius: 15px;
 }
-
-
-
-
 
 #ingredients{
     position: absolute;
