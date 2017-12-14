@@ -148,7 +148,6 @@ function resetCoins(){
 }
 
 // Function stocks
-console.log('Gobelet');
 
 function consumeWater(nbDoses){
     let heightNow = $("#water").css("height").split('px')[0];
