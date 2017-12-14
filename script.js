@@ -1,184 +1,227 @@
-let nbSucre = 0;
 
-function buy(nb5ct, nb10ct, nb20ct, nb50ct, nb1e,nb2e, price){
-	let total = nb5ct*5 + nb10ct*10 + nb20ct*20 + nb50ct*50 + nb1e*100 + nb2e*200
-		total= total/100;
-		if(total>=price){
-			return true; 
-		} else {
-			return false;
-		}
-}
 
 
 /*Déclaration des variables*/
 let COMPTEUR = 0;
 let NBSUCRES = 0;
 
+const PIECES = {
+    '5cts':0,
+    '10cts':0,
+    '20cts':0,
+    '50cts':0,
+    '1euro':0,
+    '2euros':0
+}
+
 /*Déclaration des fonctions */
 /*
 function addSugar(){
-
-	if (nbSucre < 4){
-		nbSucre = nbSucre + 1;
+    
+    if (nbSucre < 4){
+        nbSucre = nbSucre + 1;
 	}
-
-
+    
+    
 	if (nbSucre === 1){
-		$("#sucreUn").show();
+        $("#sucreUn").show();
 	} else if (nbSucre === 2){
-		$("#sucreDeux").show();
+        $("#sucreDeux").show();
 	} else if (nbSucre === 3){
-		$("#sucreTrois").show();
+        $("#sucreTrois").show();
 	} else if (nbSucre === 4){
-		$("#sucreQuatre").show();
+        $("#sucreQuatre").show();
 	}
-
+    
 	
 }
 
 function removeSugar(){
-
-	if (nbSucre > 0 && nbSucre < 5){
-		nbSucre = nbSucre - 1;
+    
+    if (nbSucre > 0 && nbSucre < 5){
+        nbSucre = nbSucre - 1;
 	}
 	if (nbSucre === 0){
-		$("#sucreUn").hide();
+        $("#sucreUn").hide();
 	} else if (nbSucre === 1){
-		$("#sucreDeux").hide();
+        $("#sucreDeux").hide();
 	} else if (nbSucre === 2){
-		$("#sucreTrois").hide();
+        $("#sucreTrois").hide();
 	} else if (nbSucre === 3){
-		$("#sucreQuatre").hide();
+        $("#sucreQuatre").hide();
 	}
 	
 }
 v Astrid */
+
 function resetDrink(){
-    let drinkPictures = $('.boisson').parent().children('img');
+    $('#btnThe').attr('src', 'images/btn_the_0.png');
+    $('#btnCafe').attr("src","images/btn_espresso_0.png");
+    $("#btnChocolat").attr("src", "images/btn_chocolat_0.png");
+    $("#btnCappuccino").attr("src", "images/btn_cappuccino_0.png");
     // drinkPictures.each(function(){
-    //     $(this).attr('src','images/LedOff.png');
-    // });
-}
-
-function selectDrink(doSelect, drink){
-    resetDrink();
-    if (drink === 'thé'){
-        if (doSelect === true){
-            $('#btnThe').attr('src', 'images/btn_the_2.png');
-        } else {
-            $('#btnThe').attr('src', 'images/btn_the_0.png');
-        }
+        //     $(this).attr('src','images/LedOff.png');
+        // });
     }
-
-    if (drink === 'café'){
-		if (doSelect === true) {
-		  $('#btnCafe').attr("src","images/btn_espresso_2.png");
-	} else {
-		$('#btnCafe').attr("src","images/btn_espresso_0.png");
-	   }
-    }
-
-    if (drink === 'chocolat'){
-        if (doSelect === true) {
-        $("#btnChocolat").attr("src", "images/btn_chocolat_2.png");
-        } else {
-        $("#btnChocolat").attr("src", "images/btn_chocolat_0.png");
-        }
-    }
-
-    if (drink === 'cappuccino'){
-        if (doSelect === true) {
-        $("#btnCappuccino").attr("src", "images/btn_cappuccino_2.png");
-        } else {
-        $("#btnCappuccino").attr("src", "images/btn_cappuccino_0.png");
-        }
-    }
-}
     
-function addSugar(){
-    let tableauSrcSucres = ["images/Sucre_Etat_0.png",
-                            "images/Sucre_Etat_1.png",
-                            "images/Sucre_Etat_2.png",
-                            "images/Sucre_Etat_3.png",
-                            "images/Sucre_Etat_4.png",
-                            "images/Sucre_Etat_5.png"];
-
-    if (NBSUCRES < 5) {
-        NBSUCRES = NBSUCRES + 1;
-    }
-
-    $('#sucres').attr('src',tableauSrcSucres[NBSUCRES]);
-
-}
-
-function removeSugar(){
-    let tableauSrcSucres = ["images/Sucre_Etat_0.png",
-    "images/Sucre_Etat_1.png",
-    "images/Sucre_Etat_2.png",
-    "images/Sucre_Etat_3.png",
-    "images/Sucre_Etat_4.png",
-    "images/Sucre_Etat_5.png"];
-
-    if (NBSUCRES > 0) {
-    NBSUCRES = NBSUCRES - 1;
-    }
-
-    $('#sucres').attr('src',tableauSrcSucres[NBSUCRES]);
-
-}
-
-// Fonction addCoin Thomas
-function addCoin(coin){
-    COMPTEUR += coin;
-    COMPTEUR = (Math.round(COMPTEUR*100))/100;
-    if (COMPTEUR < 1){
-        $('#monnayeur').html('Crédit : ' + Math.round(COMPTEUR*100) + " Cts");
-    } else {
-        $('#monnayeur').html('Crédit : ' + COMPTEUR + " €");       
-    }
-    console.log(COMPTEUR);
-}
-
-function resetCoins(){
-    COMPTEUR = 0;
-    if ( COMPTEUR === 0){
-        $("#monnayeur").html("Crédit : " + COMPTEUR + " €");
-    }
-    console.log(COMPTEUR);
-}
-
-
-/* Script*/
-$(document).ready(function(){
-    $("#btnCappuccino").click(function(){
-        let select = true;
-        if ($("#btnCappuccino").attr('src') === 'images/btn_cappuccino_2.png'){
-            select = false;
+    function selectDrink(doSelect, drink){
+        resetDrink();
+        if (drink === 'thé'){
+            if (doSelect === true){
+                $('#btnThe').attr('src', 'images/btn_the_2.png');
+            } else {
+                $('#btnThe').attr('src', 'images/btn_the_0.png');
+            }
         }
-        selectDrink(select,"cappuccino");
-	});
         
-	$('#btnPlusSucre').click(function(){
-        addSugar();
-	});
-    
-	$('#btnMoinsSucre').click(function(){
-        removeSugar();
-	});
-    
-    
-    $('#btnThe').click(function(){
-        let select = true;
-        if ($('#btnThe').attr('src') === 'images/btn_the_2.png'){
-            select = false;
+        if (drink === 'café'){
+            if (doSelect === true) {
+                $('#btnCafe').attr("src","images/btn_espresso_2.png");
+            } else {
+                $('#btnCafe').attr("src","images/btn_espresso_0.png");
+            }
         }
-        selectDrink(select,'thé');
-    });
+        
+        if (drink === 'chocolat'){
+            if (doSelect === true) {
+                $("#btnChocolat").attr("src", "images/btn_chocolat_2.png");
+            } else {
+                $("#btnChocolat").attr("src", "images/btn_chocolat_0.png");
+            }
+        }
+        
+        if (drink === 'cappuccino'){
+            if (doSelect === true) {
+                $("#btnCappuccino").attr("src", "images/btn_cappuccino_2.png");
+            } else {
+                $("#btnCappuccino").attr("src", "images/btn_cappuccino_0.png");
+            }
+        }
+    }
     
-    $('#btnCafe').click(function(){
-        let select = true;
-        if ($('#btnCafe').attr('src') === 'images/btn_espresso_2.png'){
+    function addSugar(){
+        let tableauSrcSucres = ["images/Sucre_Etat_0.png",
+        "images/Sucre_Etat_1.png",
+        "images/Sucre_Etat_2.png",
+        "images/Sucre_Etat_3.png",
+        "images/Sucre_Etat_4.png",
+        "images/Sucre_Etat_5.png"];
+        
+        if (NBSUCRES < 5) {
+            NBSUCRES = NBSUCRES + 1;
+        }
+        
+        $('#sucres').attr('src',tableauSrcSucres[NBSUCRES]);
+        
+    }
+    
+    function removeSugar(){
+        let tableauSrcSucres = ["images/Sucre_Etat_0.png",
+        "images/Sucre_Etat_1.png",
+        "images/Sucre_Etat_2.png",
+        "images/Sucre_Etat_3.png",
+        "images/Sucre_Etat_4.png",
+        "images/Sucre_Etat_5.png"];
+        
+        if (NBSUCRES > 0) {
+            NBSUCRES = NBSUCRES - 1;
+        }
+        
+        $('#sucres').attr('src',tableauSrcSucres[NBSUCRES]);
+        
+    }
+    
+    // Fonction addCoin Thomas
+    function addCoin(coin){
+
+        COMPTEUR += coin;
+        COMPTEUR = (Math.round(COMPTEUR*100))/100;
+        if (COMPTEUR < 1){
+            $('#monnayeur').html('Crédit : ' + Math.round(COMPTEUR*100) + " Cts");
+        } else {
+            $('#monnayeur').html('Crédit : ' + COMPTEUR + " €");       
+        }
+        switch (coin){
+            case 0.05:
+            PIECES['5cts'] += 1;
+            break;
+
+            case 0.10:
+            PIECES['10cts'] += 1;
+            break;
+
+            case 0.20:
+            PIECES['20cts'] += 1;
+            break;
+
+            case 0.50:
+            PIECES['50cts'] += 1;
+            break;
+
+            case 1:
+            PIECES['1euro'] += 1;
+            break;
+
+            case 2:
+            PIECES['2euros'] += 1;
+            break;
+        }
+    }
+    
+    function resetCoins(){
+        COMPTEUR = 0;
+        let coins = ['5cts','10cts','20cts','50cts','1euro','2euros'];
+
+        if ( COMPTEUR === 0){
+            $("#monnayeur").html("Crédit : " + COMPTEUR + " €");
+        }
+        console.log(COMPTEUR);
+
+        for (let i = 0; i < coins.length; i++){
+            PIECES[coins[i]] = 0;
+        }
+    }
+    
+    function buy(nb5ct, nb10ct, nb20ct, nb50ct, nb1e,nb2e, price){
+        let total = nb5ct*5 + nb10ct*10 + nb20ct*20 + nb50ct*50 + nb1e*100 + nb2e*200
+            total= total/100;
+            if(total>=price){
+                return true; 
+            } else {
+                return false;
+            }
+    }
+    
+    /* Script*/
+    $(document).ready(function(){
+        $("#btnCappuccino").click(function(){
+            let select = true;
+            if ($("#btnCappuccino").attr('src') === 'images/btn_cappuccino_2.png'){
+                select = false;
+            }
+            selectDrink(select,"cappuccino");
+        });
+        
+        $('#btnPlusSucre').click(function(){
+            addSugar();
+        });
+        
+        $('#btnMoinsSucre').click(function(){
+            removeSugar();
+        });
+        
+        
+        $('#btnThe').click(function(){
+            let select = true;
+            if ($('#btnThe').attr('src') === 'images/btn_the_2.png'){
+                select = false;
+            }
+            selectDrink(select,'thé');
+        });
+        
+        $('#btnCafe').click(function(){
+            let select = true;
+            if ($('#btnCafe').attr('src') === 'images/btn_espresso_2.png'){
             select = false;
         }
         selectDrink(select,'café');
