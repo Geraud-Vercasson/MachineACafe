@@ -147,6 +147,27 @@ function resetCoins(){
     console.log(COMPTEUR);
 }
 
+// Function stocks
+console.log('Gobelet');
+
+function consumeWater(nbDoses){
+    let heightNow = $("#water").css("height").split('px')[0];
+    console.log(heightNow);
+    let retire =  heightNow - (nbDoses*10);
+    
+    console.log(retire);
+    $("#water").css("height", retire);
+   }
+
+// function addWater(nbDoses){
+//     let heightNow = $("#water").css("height").split('px')[0];
+//     console.log(heightNow);
+//     let retire =  parseInt(heightNow) + (nbDoses*10);
+//     console.log(retire);
+//     $("#water").css("height", retire);
+   
+// }
+
 
 /* Script*/
 $(document).ready(function(){
@@ -172,6 +193,7 @@ $(document).ready(function(){
         if ($('#btnThe').attr('src') === 'images/btn_the_2.png'){
             select = false;
         }
+        consumeWater(2)
         selectDrink(select,'thé');
     });
     
@@ -180,6 +202,8 @@ $(document).ready(function(){
         if ($('#btnCafe').attr('src') === 'images/btn_espresso_2.png'){
             select = false;
         }
+            addWater(2);
+        
         selectDrink(select,'café');
     });
     $( "#btnChocolat").click(function() {
@@ -194,6 +218,11 @@ $(document).ready(function(){
             }
             selectDrink(isOn,'chocolat');
         });
+
+    $('#reset').click(function(){
+        $('#water').css('height','300');
+
+    });
 
 });
 
