@@ -333,6 +333,8 @@ $(document).ready(function(){
         if ($('#btnThe').attr('src') === 'images/btn_the_2.png'){
             select = false;
         }
+        consumeWater(4);
+        consumeThe(2);
         selectDrink(select,'thé');
     });
     
@@ -341,9 +343,9 @@ $(document).ready(function(){
         if ($('#btnCafe').attr('src') === 'images/btn_espresso_2.png'){
             select = false;
         }
+        consumeWater(3);
+        consumeCoffe(2);
         selectDrink(select,'café');
-        select = false;
-
     });
 
     $( "#btnChocolat").click(function() {
@@ -356,7 +358,9 @@ $(document).ready(function(){
             } else {
                 isOn = false;
             }
-            selectDrink(isOn,'chocolat');
+        consumeWater(2);
+        consumeChocolat(1);
+        selectDrink(isOn,'chocolat');
         });
 
     $("#btnResetArriere").click(function(){
