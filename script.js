@@ -13,7 +13,7 @@ function buy(nb5ct, nb10ct, nb20ct, nb50ct, nb1e,nb2e, price){
 
 /*Déclaration des variables*/
 let COMPTEUR = 0;
-let nbSucres = 1;
+let NBSUCRES = 0;
 
 /*Déclaration des fonctions */
 /*
@@ -97,38 +97,35 @@ function selectDrink(doSelect, drink){
 }
     
 function addSugar(){
-    let sucreJquery = $('.sucre');
-    let srcSucreVide = 'images/LedOff.png';
-    let srcSucrePlein = 'images/LedOn.png';
+    let tableauSrcSucres = ["images/Sucre_Etat_0.png",
+                            "images/Sucre_Etat_1.png",
+                            "images/Sucre_Etat_2.png",
+                            "images/Sucre_Etat_3.png",
+                            "images/Sucre_Etat_4.png",
+                            "images/Sucre_Etat_5.png"];
 
-    if (nbSucres < 5){
-        nbSucres++;
+    if (NBSUCRES < 5) {
+        NBSUCRES = NBSUCRES + 1;
     }
 
-    sucreJquery.each(function(index){
-        if (index < nbSucres){
-            $(this).attr('src',srcSucrePlein);
-        }else {
-            $(this).attr('src',srcSucreVide);
-        }
-    });
+    $('#sucres').attr('src',tableauSrcSucres[NBSUCRES]);
+
 }
 
 function removeSugar(){
-    let sucreJquery = $('.sucre');
-    let srcSucreVide = 'images/LedOff.png';
-    let srcSucrePlein = 'images/LedOn.png';
+    let tableauSrcSucres = ["images/Sucre_Etat_0.png",
+    "images/Sucre_Etat_1.png",
+    "images/Sucre_Etat_2.png",
+    "images/Sucre_Etat_3.png",
+    "images/Sucre_Etat_4.png",
+    "images/Sucre_Etat_5.png"];
 
-    if (nbSucres > 0){
-        nbSucres--;
+    if (NBSUCRES > 0) {
+    NBSUCRES = NBSUCRES - 1;
     }
-     sucreJquery.each(function(index){
-        if (index < nbSucres){
-            $(this).attr('src',srcSucrePlein);
-        }else {
-            $(this).attr('src',srcSucreVide);
-        }
-    });
+
+    $('#sucres').attr('src',tableauSrcSucres[NBSUCRES]);
+
 }
 
 // Fonction addCoin Thomas
@@ -199,13 +196,7 @@ $(document).ready(function(){
             selectDrink(isOn,'chocolat');
         });
 
-    $('#btnPlusSucre').click(function(){
-            addSugar();
-    });
-
-    $('#btnMoinsSucre').click(function(){
-        removeSugar();
-    });
+});
 
     // $(".coin").click(function(){
     //     let thisCoin =  parseFloat($(this).attr("alt"));
@@ -229,7 +220,7 @@ $(document).ready(function(){
             //     resetCoin();
             // });
             
-});
+
         
 
 
@@ -239,12 +230,12 @@ $(document).ready(function(){
         //     let srcSucreVide = 'images/1SucreVide.png';
         //     let srcSucrePlein = 'images/1Sucre.png';
         
-        //     if (nbSucres < 5){
-        //         nbSucres++;
+        //     if (NBSUCRES < 5){
+        //         NBSUCRES++;
         //     }
         
         //     sucreJquery.each(function(index){
-        //         if (index < nbSucres){
+        //         if (index < NBSUCRES){
         //             $(this).attr('src',srcSucrePlein);
         //         }else {
         //             $(this).attr('src',srcSucreVide);
@@ -258,13 +249,13 @@ $(document).ready(function(){
         //     let srcSucreVide = 'images/1SucreVide.png';
         //     let srcSucrePlein = 'images/1Sucre.png';
         
-        //     if (nbSucres > 0){
-        //         nbSucres--;
+        //     if (NBSUCRES > 0){
+        //         NBSUCRES--;
         //     }
         
         
         //     sucreJquery.each(function(index){
-        //         if (index < nbSucres){
+        //         if (index < NBSUCRES){
         //             $(this).attr('src',srcSucrePlein);
         //         }else {
         //             $(this).attr('src',srcSucreVide);
@@ -275,35 +266,35 @@ $(document).ready(function(){
         // fonction addSugar() Version Vero
         
         // function addSugar() {
-        //  if (nbSucres <5) {
-        //      nbSucres = nbSucres + 1;
+        //  if (NBSUCRES <5) {
+        //      NBSUCRES = NBSUCRES + 1;
         //  }  
-        //  console.log(nbSucres);
-        //  if (nbSucres === 1) {
+        //  console.log(NBSUCRES);
+        //  if (NBSUCRES === 1) {
         //      $("#sucreUn").attr("src", "images/sucre_plein.png");
         //      $("#sucreDeux").attr("src", "images/sucre_vide.png");
         //      $("#sucreTrois").attr("src", "images/sucre_vide.png");
         //      $("#sucreQuatre").attr("src", "images/sucre_vide.png");
         //      $("#sucreCinq").attr("src", "images/sucre_vide.png");
-        //  } else if (nbSucres === 2)  {
+        //  } else if (NBSUCRES === 2)  {
         //      $("#sucreUn").attr("src", "images/sucre_plein.png");
         //      $("#sucreDeux").attr("src", "images/sucre_plein.png");
         //      $("#sucreTrois").attr("src", "images/sucre_vide.png");
         //      $("#sucreQuatre").attr("src", "images/sucre_vide.png");
         //      $("#sucreCinq").attr("src", "images/sucre_vide.png");
-        //  } else if (nbSucres === 3)  {
+        //  } else if (NBSUCRES === 3)  {
         //      $("#sucreUn").attr("src", "images/sucre_plein.png");
         //      $("#sucreDeux").attr("src", "images/sucre_plein.png");
         //      $("#sucreTrois").attr("src", "images/sucre_plein.png");
         //      $("#sucreQuatre").attr("src", "images/sucre_vide.png");
         //      $("#sucreCinq").attr("src", "images/sucre_vide.png");
-        //  } else if (nbSucres === 4)  {
+        //  } else if (NBSUCRES === 4)  {
         //      $("#sucreUn").attr("src", "images/sucre_plein.png");
         //      $("#sucreDeux").attr("src", "images/sucre_plein.png");
         //      $("#sucreTrois").attr("src", "images/sucre_plein.png");
         //      $("#sucreQuatre").attr("src", "images/sucre_plein.png");
         //      $("#sucreCinq").attr("src", "images/sucre_vide.png");
-        //  } else if (nbSucres === 5)  {
+        //  } else if (NBSUCRES === 5)  {
         //      $("#sucreUn").attr("src", "images/sucre_plein.png");
         //      $("#sucreDeux").attr("src", "images/sucre_plein.png");
         //      $("#sucreTrois").attr("src", "images/sucre_plein.png");
@@ -321,35 +312,35 @@ $(document).ready(function(){
         
         // function removeSugar() {
         
-        // 	if (nbSucres >0) {
-        // 		nbSucres = nbSucres - 1 ;
+        // 	if (NBSUCRES >0) {
+        // 		NBSUCRES = NBSUCRES - 1 ;
         // 	}  
-        // 	console.log(nbSucres);
-        // 	if (nbSucres === 1) {
+        // 	console.log(NBSUCRES);
+        // 	if (NBSUCRES === 1) {
         // 		$("#sucreUn").attr("src", "images/sucre_plein.png");
         // 		$("#sucreDeux").attr("src", "images/sucre_vide.png");
         // 		$("#sucreTrois").attr("src", "images/sucre_vide.png");
         // 		$("#sucreQuatre").attr("src", "images/sucre_vide.png");
         // 		$("#sucreCinq").attr("src", "images/sucre_vide.png");
-        // 	} else if (nbSucres === 2)  {
+        // 	} else if (NBSUCRES === 2)  {
         // 		$("#sucreUn").attr("src", "images/sucre_plein.png");
         // 		$("#sucreDeux").attr("src", "images/sucre_plein.png");
         // 		$("#sucreTrois").attr("src", "images/sucre_vide.png");
         // 		$("#sucreQuatre").attr("src", "images/sucre_vide.png");
         // 		$("#sucreCinq").attr("src", "images/sucre_vide.png");
-        // 	} else if (nbSucres === 3)  {
+        // 	} else if (NBSUCRES === 3)  {
         // 		$("#sucreUn").attr("src", "images/sucre_plein.png");
         // 		$("#sucreDeux").attr("src", "images/sucre_plein.png");
         // 		$("#sucreTrois").attr("src", "images/sucre_plein.png");
         // 		$("#sucreQuatre").attr("src", "images/sucre_vide.png");
         // 		$("#sucreCinq").attr("src", "images/sucre_vide.png");
-        // 	} else if (nbSucres === 4)  {
+        // 	} else if (NBSUCRES === 4)  {
         // 		$("#sucreUn").attr("src", "images/sucre_plein.png");
         // 		$("#sucreDeux").attr("src", "images/sucre_plein.png");
         // 		$("#sucreTrois").attr("src", "images/sucre_plein.png");
         // 		$("#sucreQuatre").attr("src", "images/sucre_plein.png");
         // 		$("#sucreCinq").attr("src", "images/sucre_vide.png");
-        // 	} else if (nbSucres === 5)  {
+        // 	} else if (NBSUCRES === 5)  {
         // 		$("#sucreUn").attr("src", "images/sucre_plein.png");
         // 		$("#sucreDeux").attr("src", "images/sucre_plein.png");
         // 		$("#sucreTrois").attr("src", "images/sucre_plein.png");
@@ -366,12 +357,12 @@ $(document).ready(function(){
         
         // function removeSugar() {
             
-        // 		if (nbSucres >0) {
-        // 			nbSucres = nbSucres - 1 ;
+        // 		if (NBSUCRES >0) {
+        // 			NBSUCRES = NBSUCRES - 1 ;
         // 		}  
         
         // 	$(".sucre").each(function(index){
-        // 		if (index < nbSucres) {
+        // 		if (index < NBSUCRES) {
         // 			$(this).attr("src", "images/sucre_plein.png");
         // 		} else {
         // 			$(this).attr("src", "images/sucre_vide.png");
