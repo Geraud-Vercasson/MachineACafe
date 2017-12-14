@@ -1,0 +1,73 @@
+html, body {
+  background-color: #fff;
+  color: #636b6f;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 100;
+  height: 100vh;
+  margin: 0;
+}
+
+.img5ct{
+    height: 20px;
+    width:  60px;
+}
+.img10ct{
+    height: 22px;
+    width:  60px;
+}
+
+.img20ct{
+    height: 22px;
+    width:  60px;
+}
+.img50ct{
+    height: 23px;
+    width:  60px;
+}
+
+.img1euro{
+    height: 25px;
+    width:  62px;
+}
+
+.img2euro{
+    height: 26px;
+    width:  62px;
+}
+.coin5ct{
+  margin-bottom: -22px;
+  position: relative;
+}
+
+.coin10ct{
+  margin-bottom: -22px;
+  position: relative;
+}
+
+.coin20ct{
+  margin-bottom: -22px;
+  position: relative;
+}
+.coin50ct{
+  margin-bottom: -22px;
+  position: relative;
+}
+.coin1euro{
+  margin-bottom: -22px;
+  position: relative;
+}
+.coin2euro{
+  margin-bottom: -22px;
+  position: relative;
+}
+div {
+}
+
+td{
+  text-align: center;
+}
+
+button {
+  margin-top: 10px;
+  margin-bottom: 40px;
+}

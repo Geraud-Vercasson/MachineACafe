@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>recette_cappuccino</title>
+</head>
+<body>
+
+<script id="jsbin-javascript">
+
+function cappuccino(nb_sucre){
+  let tab = ['cappuccino','café: 1 dose','eau: 1 dose','lait: 1 dose'];
+ 
+  if (nb_sucre >0){
+  
+    tab.push('sucre:'+ nb_sucre)
+  }
+ console.log(tab);
+return tab
+ 
+}
+
+
+let sucre = 1;
+let gob = ['gobelet '];
+let touille =['touillette'];
+let recette = cappuccino(sucre);
+let all = gob.concat(recette,touille);
+
+
+
+
+
+
+</script>
+</body>
+</html>
