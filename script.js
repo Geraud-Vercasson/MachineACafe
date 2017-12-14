@@ -234,61 +234,6 @@ function resetCoins(){
 
 // Functions gestion du stock d'ingrédients
 
-function consumeCoffee(nbDoses){
-    let heightNow = $("#coffee").css("height").split('px')[0];
-    // console.log(heightNow);
-    let retire =  heightNow - (nbDoses*10);
-    // console.log(retire);
-    $("#coffee").css("height", retire);
-}
-
-function consumeChocolat(nbDoses){
-    let heightNow = $("#chocolat").css("height").split('px')[0];
-    // console.log(heightNow);
-    let retire =  heightNow - (nbDoses*10);
-    // console.log(retire);
-    $("#chocolat").css("height", retire);
-}
-
-function consumeThe(nbDoses){
-    let heightNow = $("#the").css("height").split('px')[0];
-    // console.log(heightNow);
-    let retire =  heightNow - (nbDoses*10);
-    // console.log(retire);
-    $("#the").css("height", retire);
-}
-
-function consumeWater(nbDoses){
-    let heightNow = $("#water").css("height").split('px')[0];
-    // console.log(heightNow);
-    let retire =  heightNow - (nbDoses*10);
-    // console.log(retire);
-    $("#water").css("height", retire);
-}
-
-function consumeMilk(nbDoses){
-    let heightNow = $("#milk").css("height").split('px')[0];
-    // console.log(heightNow);
-    let retire =  heightNow - (nbDoses*10);
-    // console.log(retire);
-    $("#milk").css("height", retire);
-}
-
-// Fonction addWater non utilisée car bouton reset pour remplir tout
-
-
-// function addWater(nbDoses){
-//     let heightNow = $("#water").css("height").split('px')[0];
-//     console.log(heightNow);
-//     let retire =  parseInt(heightNow) + (nbDoses*10);
-//     console.log(retire);
-//     $("#water").css("height", retire);
-   
-// }
-
-
-=======
-// Function stocks
 
 function consumeWater(nbDoses){
     let heightNow = $("#water").css("height").split('px')[0];
@@ -348,7 +293,6 @@ function consumeWater(nbDoses){
  //     $("#water, #coffee, #chocolat, #the, #sugar, #milk").css("height", retire);
  
  // }
->>>>>>> d497d29664a33adae465560e4c3965aad8ef25aa
 
 function buy(nb5ct, nb10ct, nb20ct, nb50ct, nb1e,nb2e, price){
     let total = nb5ct*5 + nb10ct*10 + nb20ct*20 + nb50ct*50 + nb1e*100 + nb2e*200;
@@ -408,7 +352,7 @@ $(document).ready(function(){
         selectDrink(select,"cappuccino");
     });
     
-<<<<<<< HEAD
+
     $('#btnPlusSucre').click(function(){
         addSugar();
     });
@@ -425,15 +369,12 @@ $(document).ready(function(){
 
             select = false;
         }
-
         consumeCoffee(1);
         consumeWater(2);
 
         selectDrink(select,'café');
+    });
 
-
-=======
->>>>>>> d497d29664a33adae465560e4c3965aad8ef25aa
     $('#btnThe').click(function(){
         let select = true;
         if ($('#btnThe').attr('src') === 'images/btn_the_2.png'){
@@ -448,16 +389,9 @@ $(document).ready(function(){
             select = false;
         }
         selectDrink(select,'café');
-<<<<<<< HEAD
-    }
-
     });
     
-=======
-        select = false;
 
-    });
->>>>>>> d497d29664a33adae465560e4c3965aad8ef25aa
 
     $( "#btnChocolat").click(function() {
         let isOn=true;
@@ -560,11 +494,7 @@ $(document).ready(function(){
     $('#btn2euro').click(function(){
         addCoin(2);
 
-<<<<<<< HEAD
 
-
-=======
->>>>>>> d497d29664a33adae465560e4c3965aad8ef25aa
     });
 
     $('#btnPay').click(function(){
@@ -572,11 +502,6 @@ $(document).ready(function(){
 
         let canBuy = buy(PIECES['5cts'],PIECES['10cts'],PIECES['20cts'],PIECES['50cts'],PIECES['1euro'],PIECES['2euros'],drinkPrice);
         
-<<<<<<< HEAD
-        
-=======
->>>>>>> d497d29664a33adae465560e4c3965aad8ef25aa
-
     });
 
 });
