@@ -4,6 +4,8 @@
 /*Déclaration des variables*/
 let COMPTEUR = 0;
 let NBSUCRES = 0;
+let SELECTED = "";
+
 
 const PIECES = {
     '5cts':0,
@@ -116,6 +118,12 @@ function selectDrink(doSelect, drink){
             $("#btnCappuccino").attr("src", "images/btn_cappuccino_0.png");
         }
     }
+
+    if (doSelect === true){
+        SELECTED = drink;
+    } else {
+        SELECTED = "";
+    }
 }
 
 function addSugar(){
@@ -154,6 +162,7 @@ function removeSugar(){
 function addCoin(coin){
 
     COMPTEUR += coin;
+    COMPTEUR = (Math.round(COMPTEUR*100))/100;
     if (COMPTEUR < 1){
         $('#monnayeur').html('Crédit : ' + Math.round(COMPTEUR*100) + " Cts");
     } else {
@@ -203,30 +212,8 @@ function resetCoins(){
     }
 }
 
-<<<<<<< HEAD
-// Function stocks
-
-function consumeWater(nbDoses){
-    let heightNow = $("#water").css("height").split('px')[0];
-    console.log(heightNow);
-    let retire =  heightNow - (nbDoses*10);
-    
-    console.log(retire);
-    $("#water").css("height", retire);
-   }
-
-// function addWater(nbDoses){
-//     let heightNow = $("#water").css("height").split('px')[0];
-//     console.log(heightNow);
-//     let retire =  parseInt(heightNow) + (nbDoses*10);
-//     console.log(retire);
-//     $("#water").css("height", retire);
-   
-// }
-
-=======
 function buy(nb5ct, nb10ct, nb20ct, nb50ct, nb1e,nb2e, price){
-    let total = nb5ct*5 + nb10ct*10 + nb20ct*20 + nb50ct*50 + nb1e*100 + nb2e*200
+    let total = nb5ct*5 + nb10ct*10 + nb20ct*20 + nb50ct*50 + nb1e*100 + nb2e*200;
         total= total/100;
         if(total>=price){
             return true; 
@@ -234,7 +221,34 @@ function buy(nb5ct, nb10ct, nb20ct, nb50ct, nb1e,nb2e, price){
             return false;
         }
 }
->>>>>>> a8f4a28e23b11c3d84f6c8f8b08a3c9e3ed3d331
+
+function displayDrink(){
+    $('#gobeletFond').addClass('gobeletBack');
+    $('#gobeletFace').addClass('gobeletFront');
+   }
+   
+   function displayTouillette(){
+       $('#touillette').addClass('touillette');
+   }
+   
+   function displayBoisson(boissonChoisie){
+       $('#boisson').removeClass().addClass('gobeletElement');
+       let className = "";
+       if (boissonChoisie === "cafe"){
+           className = "boissonCafe";
+       } else if (boissonChoisie === "cappuccino"){
+           className = 'boissonCappuccino';
+       } else if (boissonChoisie === "chocolat"){
+           className = "boissonChocolat";
+       } else if (boissonChoisie === 'the'){
+           className = 'boissonThe';
+       }
+       $('#boisson').addClass(className);
+   }
+   
+   function displaySucre(){
+       $('#sucre').addClass('boissonSucre');
+   }
 
     /* Script*/
 $(document).ready(function(){
@@ -263,24 +277,15 @@ $(document).ready(function(){
         if ($('#btnThe').attr('src') === 'images/btn_the_2.png'){
             select = false;
         }
-        consumeWater(2)
         selectDrink(select,'thé');
     });
     
     $('#btnCafe').click(function(){
         let select = true;
         if ($('#btnCafe').attr('src') === 'images/btn_espresso_2.png'){
-<<<<<<< HEAD
-            select = false;
-        }
-            addWater(2);
-        
-        selectDrink(select,'café');
-=======
         select = false;
+        selectDrink(select,'café');
     }
-    selectDrink(select,'café');
->>>>>>> a8f4a28e23b11c3d84f6c8f8b08a3c9e3ed3d331
     });
     $( "#btnChocolat").click(function() {
         let isOn=true;
@@ -295,13 +300,7 @@ $(document).ready(function(){
             selectDrink(isOn,'chocolat');
         });
 
-<<<<<<< HEAD
-    $('#reset').click(function(){
-        $('#water').css('height','300');
 
-=======
-    $('#btnPay').click(function(){
-    });
     
     $('#fente').click(function(){
         if ($('#pieces').css("display") === "none"){
@@ -340,7 +339,14 @@ $(document).ready(function(){
     
     $('#btn2euro').click(function(){
         addCoin(2);
->>>>>>> a8f4a28e23b11c3d84f6c8f8b08a3c9e3ed3d331
+    });
+
+    $('#btnPay').click(function(){
+        let drinkPrice = 0.5;
+
+        let canBuy = buy(PIECES['5cts'],PIECES['10cts'],PIECES['20cts'],PIECES['50cts'],PIECES['1euro'],PIECES['2euros'],drinkPrice);
+        
+        
     });
 
 });
