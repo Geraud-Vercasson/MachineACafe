@@ -203,7 +203,6 @@ function resetCoins(){
     }
 }
 
-<<<<<<< HEAD
 // Function stocks
 
 function consumeWater(nbDoses){
@@ -215,16 +214,56 @@ function consumeWater(nbDoses){
     $("#water").css("height", retire);
    }
 
-// function addWater(nbDoses){
-//     let heightNow = $("#water").css("height").split('px')[0];
-//     console.log(heightNow);
-//     let retire =  parseInt(heightNow) + (nbDoses*10);
-//     console.log(retire);
-//     $("#water").css("height", retire);
-   
-// }
+   function consumeSugar(nbDoses){
+    let heightNow = $("#sugar").css("height").split('px')[0];
+    console.log(heightNow);
+    let retire =  heightNow - (nbDoses*10);
+    
+    console.log(retire);
+    $("#sugar").css("height", retire);
+   }
 
-=======
+   function consumeMilk(nbDoses){
+    let heightNow = $("#milk").css("height").split('px')[0];
+    console.log(heightNow);
+    let retire =  heightNow - (nbDoses*10);
+    
+    console.log(retire);
+    $("#milk").css("height", retire);
+   }
+    function consumeCoffe(nbDoses){
+    let heightNow = $("#coffee").css("height").split('px')[0];
+    console.log(heightNow);
+    let retire =  heightNow - (nbDoses*10);
+    
+    console.log(retire);
+    $("#coffee").css("height", retire);
+   }
+      function consumeThe(nbDoses){
+    let heightNow = $("#the").css("height").split('px')[0];
+    console.log(heightNow);
+    let retire =  heightNow - (nbDoses*10);
+    
+    console.log(retire);
+    $("the").css("height", retire);
+   }
+    function consumeChocolat(nbDoses){
+    let heightNow = $("#chocolat").css("height").split('px')[0];
+    console.log(heightNow);
+    let retire =  heightNow - (nbDoses*10);
+    
+    console.log(retire);
+    $("#chocolat").css("height", retire);
+   }
+ //    function addIngredient(nbDoses){
+ //     let heightNow = $("#water, #coffee, #chocolat, #the, #sugar, #milk").css("height").split('px')[0];
+ //     console.log(heightNow);
+ //     let retire =  parseInt(heightNow) + (nbDoses*10);
+ //     console.log(retire);
+ //     $("#water, #coffee, #chocolat, #the, #sugar, #milk").css("height", retire);
+ 
+ // }
+
 function buy(nb5ct, nb10ct, nb20ct, nb50ct, nb1e,nb2e, price){
     let total = nb5ct*5 + nb10ct*10 + nb20ct*20 + nb50ct*50 + nb1e*100 + nb2e*200
         total= total/100;
@@ -234,7 +273,6 @@ function buy(nb5ct, nb10ct, nb20ct, nb50ct, nb1e,nb2e, price){
             return false;
         }
 }
->>>>>>> a8f4a28e23b11c3d84f6c8f8b08a3c9e3ed3d331
 
     /* Script*/
 $(document).ready(function(){
@@ -246,17 +284,11 @@ $(document).ready(function(){
         if ($("#btnCappuccino").attr('src') === 'images/btn_cappuccino_2.png'){
             select = false;
         }
+        consumeWater(2);
+        consumeMilk(1);
+        consumeCoffe(1);
         selectDrink(select,"cappuccino");
     });
-    
-    $('#btnPlusSucre').click(function(){
-        addSugar();
-    });
-    
-    $('#btnMoinsSucre').click(function(){
-        removeSugar();
-    });
-    
     
     $('#btnThe').click(function(){
         let select = true;
@@ -270,18 +302,14 @@ $(document).ready(function(){
     $('#btnCafe').click(function(){
         let select = true;
         if ($('#btnCafe').attr('src') === 'images/btn_espresso_2.png'){
-<<<<<<< HEAD
             select = false;
         }
             addWater(2);
         
         selectDrink(select,'café');
-=======
         select = false;
-    }
-    selectDrink(select,'café');
->>>>>>> a8f4a28e23b11c3d84f6c8f8b08a3c9e3ed3d331
     });
+
     $( "#btnChocolat").click(function() {
         let isOn=true;
         //     selectDrink(isOn,"chocolat");
@@ -295,11 +323,26 @@ $(document).ready(function(){
             selectDrink(isOn,'chocolat');
         });
 
-<<<<<<< HEAD
-    $('#reset').click(function(){
-        $('#water').css('height','300');
+    $("#btnResetArriere").click(function(){
+        $("#water").css("height","150");
+        $("#chocolat").css("height","150");
+        $("#coffee").css("height","150");
+        $("#sugar").css("height","150");
+        $("#the").css("height","150");
+        $("#milk").css("height","150");
+    });
+    
+    $('#btnPlusSucre').click(function(){
+        addSugar();
+    });
+    
+    $('#btnMoinsSucre').click(function(){
+        removeSugar();
+    });
 
-=======
+    // $('#reset').click(function(){
+    //     $("#water","#coffee","chocolat","the","sugar","milk").css('height','300');
+
     $('#btnPay').click(function(){
     });
     
@@ -340,7 +383,6 @@ $(document).ready(function(){
     
     $('#btn2euro').click(function(){
         addCoin(2);
->>>>>>> a8f4a28e23b11c3d84f6c8f8b08a3c9e3ed3d331
     });
 
 });
